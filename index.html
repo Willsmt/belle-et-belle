@@ -1,0 +1,1318 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belle et Belle Studio — Estética Corporal</title>
+    <meta
+      name="description"
+      content="Estúdio de estética corporal com protocolos personalizados. Agende sua avaliação."
+    />
+
+    <!-- Fontes: Fraunces (display) + Jost (corpo/UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================================
+   TOKENS — paleta tons de pele + acento vinho/rosé + dourado
+   ============================================================ */
+      :root {
+        --porcelain: #f4ece6; /* base */
+        --lait: #fbf7f3; /* cards claros */
+        --shell: #e7d6cb; /* bandas / divisores */
+        --cacau: #463029; /* texto escuro quente */
+        --espresso: #2d1e18; /* contraste / rodapé */
+        --vin: #7c4a56; /* acento (a "dobradiça" et) */
+        --vin-deep: #5e343f; /* acento hover */
+        --gold: #be9a6a; /* fios / detalhes champagne */
+
+        --font-display: "Fraunces", Georgia, serif;
+        --font-body: "Jost", system-ui, sans-serif;
+
+        --maxw: 1200px;
+        --gut: clamp(1.25rem, 4vw, 4rem);
+        --radius: 2px;
+        --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-weight: 300;
+        color: var(--cacau);
+        background: var(--porcelain);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* Tipografia base */
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        line-height: 1.08;
+        letter-spacing: -0.01em;
+      }
+      .eyebrow {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--vin);
+      }
+      .eyebrow::before {
+        content: "—";
+        margin-right: 0.7em;
+        color: var(--gold);
+      }
+
+      /* Marca "Belle et Belle" com o et em destaque */
+      .wordmark {
+        font-family: var(--font-display);
+        letter-spacing: 0.01em;
+      }
+      .wordmark .et {
+        font-style: italic;
+        color: var(--gold);
+        padding: 0 0.12em;
+      }
+
+      /* Layout */
+      .wrap {
+        max-width: var(--maxw);
+        margin-inline: auto;
+        padding-inline: var(--gut);
+      }
+      .section {
+        padding-block: clamp(4.5rem, 9vw, 8rem);
+      }
+
+      /* Botões */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6em;
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        padding: 0.95em 1.8em;
+        border-radius: var(--radius);
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.35s var(--ease);
+      }
+      .btn--primary {
+        background: var(--vin);
+        color: var(--lait);
+      }
+      .btn--primary:hover {
+        background: var(--vin-deep);
+        transform: translateY(-2px);
+      }
+      .btn--ghost {
+        background: transparent;
+        color: var(--cacau);
+        border-color: var(--cacau);
+      }
+      .btn--ghost:hover {
+        background: var(--cacau);
+        color: var(--lait);
+      }
+
+      /* Acessibilidade: foco visível */
+      a:focus-visible,
+      button:focus-visible,
+      .btn:focus-visible {
+        outline: 2px solid var(--vin);
+        outline-offset: 3px;
+      }
+
+      /* ============================================================
+   NAV
+   ============================================================ */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: color-mix(in srgb, var(--porcelain) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--cacau) 8%, transparent);
+      }
+      .nav__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .nav__brand {
+        font-size: 1.35rem;
+      }
+      .nav__links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+      .nav__links a {
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        transition: color 0.3s;
+      }
+      .nav__links a:hover {
+        color: var(--vin);
+      }
+      .nav__toggle {
+        display: none;
+        background: none;
+        border: 0;
+        font-size: 1.6rem;
+        color: var(--cacau);
+        cursor: pointer;
+      }
+
+      /* ============================================================
+   HERO
+   ============================================================ */
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero__grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(2rem, 5vw, 5rem);
+        align-items: center;
+        padding-block: clamp(3.5rem, 8vw, 7rem);
+      }
+      .hero__title {
+        font-size: clamp(2.6rem, 6.5vw, 5.2rem);
+        margin: 1.2rem 0 1.5rem;
+      }
+      .hero__title em {
+        font-style: italic;
+        color: var(--vin);
+      }
+      .hero__sub {
+        font-size: 1.08rem;
+        max-width: 40ch;
+        color: color-mix(in srgb, var(--cacau) 80%, transparent);
+      }
+      .hero__cta {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2.2rem;
+        flex-wrap: wrap;
+      }
+
+      /* Retrato (placeholder elegante) */
+      .hero__art {
+        position: relative;
+        aspect-ratio: 4/5;
+        border-radius: var(--radius);
+        background:
+          radial-gradient(
+            120% 90% at 70% 20%,
+            color-mix(in srgb, var(--vin) 22%, var(--shell)) 0%,
+            transparent 55%
+          ),
+          linear-gradient(
+            160deg,
+            var(--shell),
+            color-mix(in srgb, var(--cacau) 30%, var(--shell))
+          );
+        overflow: hidden;
+      }
+      .hero__art::after {
+        content: "foto da profissional / espaço";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 0.78rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--lait) 75%, transparent);
+      }
+      .hero__art-line {
+        /* fio dourado decorativo */
+        position: absolute;
+        left: -10%;
+        bottom: 14%;
+        width: 120%;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.6;
+        transform: rotate(-6deg);
+      }
+
+      /* ============================================================
+   STATS (prova social)
+   ============================================================ */
+      .stats {
+        background: var(--espresso);
+        color: var(--lait);
+      }
+      .stats__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+        padding-block: clamp(2.5rem, 5vw, 3.5rem);
+        gap: 1rem;
+      }
+      .stats__item {
+        padding: 0.5rem;
+      }
+      .stats__num {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 2.9rem);
+        color: var(--gold);
+      }
+      .stats__label {
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.78;
+        margin-top: 0.3rem;
+      }
+      .stats__item + .stats__item {
+        border-left: 1px solid color-mix(in srgb, var(--lait) 14%, transparent);
+      }
+
+      /* ============================================================
+   SERVIÇOS
+   ============================================================ */
+      .sec-head {
+        max-width: 50ch;
+        margin-bottom: 3rem;
+      }
+      .sec-head h2 {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        margin-top: 0.8rem;
+      }
+      .services__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .card {
+        background: var(--lait);
+        border: 1px solid color-mix(in srgb, var(--cacau) 7%, transparent);
+        border-radius: var(--radius);
+        padding: 2.2rem 1.9rem;
+        transition:
+          transform 0.4s var(--ease),
+          box-shadow 0.4s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px -22px
+          color-mix(in srgb, var(--cacau) 45%, transparent);
+      }
+      .card__no {
+        font-family: var(--font-display);
+        font-style: italic;
+        color: var(--gold);
+        font-size: 1.1rem;
+      }
+      .card h3 {
+        font-size: 1.45rem;
+        margin: 0.9rem 0 0.6rem;
+      }
+      .card p {
+        font-size: 0.95rem;
+        color: color-mix(in srgb, var(--cacau) 78%, transparent);
+      }
+
+      /* ============================================================
+   ANTES / DEPOIS — assinatura "et"
+   ============================================================ */
+      .beforeafter {
+        background: var(--shell);
+      }
+      .ba__head {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .ba__head h2 {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        margin-top: 0.6rem;
+      }
+
+      /* Slider comparativo */
+      .ba__compare {
+        position: relative;
+        max-width: 760px;
+        margin-inline: auto;
+        aspect-ratio: 16/10;
+        border-radius: var(--radius);
+        overflow: hidden;
+        cursor: ew-resize;
+        user-select: none;
+        box-shadow: 0 25px 60px -30px
+          color-mix(in srgb, var(--cacau) 60%, transparent);
+      }
+      .ba__layer {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 0.8rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--lait) 80%, transparent);
+      }
+      .ba__after {
+        background: linear-gradient(
+          140deg,
+          color-mix(in srgb, var(--vin) 35%, var(--shell)),
+          var(--cacau)
+        );
+      }
+      .ba__before {
+        background: linear-gradient(
+          140deg,
+          color-mix(in srgb, var(--cacau) 20%, var(--shell)),
+          color-mix(in srgb, var(--cacau) 55%, var(--shell))
+        );
+        clip-path: inset(0 50% 0 0);
+      }
+      .ba__tag {
+        position: absolute;
+        top: 1rem;
+        padding: 0.35em 0.9em;
+        background: color-mix(in srgb, var(--espresso) 65%, transparent);
+        color: var(--lait);
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        border-radius: var(--radius);
+      }
+      .ba__tag--before {
+        left: 1rem;
+      }
+      .ba__tag--after {
+        right: 1rem;
+      }
+      .ba__handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        background: var(--lait);
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+      .ba__knob {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: var(--lait);
+        color: var(--vin);
+        display: grid;
+        place-items: center;
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      }
+      .ba__note {
+        text-align: center;
+        margin-top: 1.4rem;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        color: color-mix(in srgb, var(--cacau) 65%, transparent);
+      }
+
+      /* ============================================================
+   SOBRE
+   ============================================================ */
+      .about__grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(2rem, 5vw, 4.5rem);
+        align-items: center;
+      }
+      .about__art {
+        aspect-ratio: 1/1;
+        border-radius: var(--radius);
+        position: relative;
+        background: linear-gradient(
+          150deg,
+          var(--shell),
+          color-mix(in srgb, var(--vin) 25%, var(--shell))
+        );
+      }
+      .about__art::after {
+        content: "retrato";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--lait) 70%, transparent);
+      }
+      .about h2 {
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        margin: 0.8rem 0 1.3rem;
+      }
+      .about p {
+        max-width: 52ch;
+        margin-bottom: 1rem;
+        color: color-mix(in srgb, var(--cacau) 82%, transparent);
+      }
+      .about__creds {
+        display: flex;
+        gap: 2rem;
+        margin-top: 1.8rem;
+        flex-wrap: wrap;
+      }
+      .about__cred span {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        color: var(--vin);
+      }
+      .about__cred small {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        opacity: 0.7;
+      }
+
+      /* ============================================================
+   DEPOIMENTOS
+   ============================================================ */
+      .testi {
+        background: var(--lait);
+      }
+      .testi__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .quote {
+        padding: 2.2rem 2rem;
+        border-top: 2px solid var(--gold);
+        background: var(--porcelain);
+        border-radius: var(--radius);
+      }
+      .quote p {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1.15rem;
+        line-height: 1.5;
+      }
+      .quote footer {
+        margin-top: 1.4rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--vin);
+      }
+
+      /* ============================================================
+   FAQ
+   ============================================================ */
+      .faq__grid {
+        max-width: 800px;
+        margin-inline: auto;
+      }
+      .faq__item {
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--cacau) 12%, transparent);
+      }
+      .faq__q {
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        color: var(--cacau);
+        padding: 1.4rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+      .faq__q .ico {
+        font-family: var(--font-body);
+        font-weight: 300;
+        color: var(--vin);
+        transition: transform 0.35s var(--ease);
+        flex: 0 0 auto;
+      }
+      .faq__item.open .faq__q .ico {
+        transform: rotate(45deg);
+      }
+      .faq__a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s var(--ease);
+      }
+      .faq__a p {
+        padding-bottom: 1.4rem;
+        color: color-mix(in srgb, var(--cacau) 80%, transparent);
+        max-width: 65ch;
+      }
+
+      /* ============================================================
+   CONTATO
+   ============================================================ */
+      .contact {
+        background: var(--espresso);
+        color: var(--lait);
+      }
+      .contact__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: center;
+      }
+      .contact h2 {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        color: var(--lait);
+        margin: 0.8rem 0 1.4rem;
+      }
+      .contact .eyebrow {
+        color: var(--gold);
+      }
+      .contact__list {
+        list-style: none;
+        margin: 1.8rem 0;
+      }
+      .contact__list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--lait) 12%, transparent);
+        font-size: 0.95rem;
+      }
+      .contact__list strong {
+        display: inline-block;
+        min-width: 110px;
+        color: var(--gold);
+        font-weight: 500;
+      }
+      .contact__map {
+        aspect-ratio: 4/3;
+        border-radius: var(--radius);
+        position: relative;
+        background: linear-gradient(
+          150deg,
+          color-mix(in srgb, var(--gold) 25%, var(--espresso)),
+          var(--espresso)
+        );
+        border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+      }
+      .contact__map::after {
+        content: "mapa / Google Maps";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: color-mix(in srgb, var(--lait) 60%, transparent);
+      }
+
+      /* ============================================================
+   RODAPÉ
+   ============================================================ */
+      .footer {
+        background: var(--espresso);
+        color: color-mix(in srgb, var(--lait) 70%, transparent);
+        padding-block: 2.5rem;
+        border-top: 1px solid color-mix(in srgb, var(--lait) 10%, transparent);
+      }
+      .footer__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .footer .wordmark {
+        font-size: 1.3rem;
+        color: var(--lait);
+      }
+      .footer__social {
+        display: flex;
+        gap: 1.4rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+      }
+      .footer__social a:hover {
+        color: var(--gold);
+      }
+      .footer__credit {
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        opacity: 0.6;
+        width: 100%;
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+
+      /* ============================================================
+   WHATSAPP FLUTUANTE
+   ============================================================ */
+      .wa {
+        position: fixed;
+        right: clamp(1rem, 3vw, 2rem);
+        bottom: clamp(1rem, 3vw, 2rem);
+        z-index: 60;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6em;
+        background: #25d366;
+        color: #fff;
+        padding: 0.85em 1.4em;
+        border-radius: 50px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s var(--ease);
+      }
+      .wa:hover {
+        transform: translateY(-3px);
+      }
+      .wa svg {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+      }
+
+      /* ============================================================
+   REVEAL (scroll)
+   ============================================================ */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s var(--ease),
+          transform 0.7s var(--ease);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ============================================================
+   RESPONSIVO
+   ============================================================ */
+      /* Tablet (retrato/paisagem) — grids em 2 colunas */
+      @media (max-width: 1024px) {
+        .services__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .testi__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Celular — coluna única e menu compacto */
+      @media (max-width: 880px) {
+        .nav__links {
+          position: fixed;
+          inset: 72px 0 auto 0;
+          flex-direction: column;
+          gap: 0;
+          background: var(--porcelain);
+          border-bottom: 1px solid
+            color-mix(in srgb, var(--cacau) 10%, transparent);
+          padding: 1rem var(--gut);
+          transform: translateY(-130%);
+          transition: transform 0.4s var(--ease);
+        }
+        .nav__links.open {
+          transform: none;
+        }
+        .nav__links a {
+          padding: 0.9rem 0;
+          width: 100%;
+          border-bottom: 1px solid
+            color-mix(in srgb, var(--cacau) 8%, transparent);
+        }
+        .nav__links .btn {
+          margin-top: 0.6rem;
+        }
+        .nav__toggle {
+          display: block;
+        }
+        .hero__grid {
+          grid-template-columns: 1fr;
+        }
+        .hero__art {
+          order: -1;
+          aspect-ratio: 5/4;
+        }
+        .stats__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stats__item:nth-child(3),
+        .stats__item:nth-child(1) {
+          border-left: 0;
+        }
+        .stats__item:nth-child(3) {
+          border-top: 1px solid color-mix(in srgb, var(--lait) 14%, transparent);
+        }
+        .stats__item:nth-child(4) {
+          border-top: 1px solid color-mix(in srgb, var(--lait) 14%, transparent);
+        }
+        .services__grid,
+        .testi__grid {
+          grid-template-columns: 1fr;
+        }
+        .about__grid,
+        .contact__grid {
+          grid-template-columns: 1fr;
+        }
+        .about__art {
+          order: -1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===================== NAV ===================== -->
+    <header class="nav">
+      <div class="wrap nav__inner">
+        <a href="#top" class="wordmark nav__brand"
+          >Belle <span class="et">et</span> Belle</a
+        >
+        <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
+          <a href="#servicos">Tratamentos</a>
+          <a href="#resultados">Resultados</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contato">Contato</a>
+          <a href="#contato" class="btn btn--primary">Agendar avaliação</a>
+        </nav>
+        <button
+          class="nav__toggle"
+          id="navToggle"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ===================== HERO ===================== -->
+      <section class="hero">
+        <div class="wrap hero__grid">
+          <div class="hero__copy reveal">
+            <p class="eyebrow">Estética corporal · São Paulo</p>
+            <h1 class="hero__title">Você, e a sua <em>melhor versão</em>.</h1>
+            <p class="hero__sub">
+              Protocolos personalizados de estética corporal que cuidam do seu
+              corpo e da sua confiança — no seu tempo, no seu ritmo.
+            </p>
+            <div class="hero__cta">
+              <a href="#contato" class="btn btn--primary">Agendar avaliação</a>
+              <a href="#servicos" class="btn btn--ghost">Ver tratamentos</a>
+            </div>
+          </div>
+          <div class="hero__art reveal" aria-hidden="true">
+            <span class="hero__art-line"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== STATS / PROVA SOCIAL ===================== -->
+      <!-- MOCK: trocar pelos números reais do estúdio -->
+      <section class="stats">
+        <div class="wrap stats__grid">
+          <div class="stats__item">
+            <div class="stats__num">6+</div>
+            <div class="stats__label">anos de estúdio</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__num">900+</div>
+            <div class="stats__label">clientes atendidas</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__num">4,9★</div>
+            <div class="stats__label">avaliação Google</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__num">100%</div>
+            <div class="stats__label">protocolos sob medida</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SERVIÇOS ===================== -->
+      <!-- MOCK: ajustar lista conforme os serviços reais -->
+      <section class="section" id="servicos">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <p class="eyebrow">Tratamentos</p>
+            <h2>Cada protocolo nasce do que o seu corpo precisa.</h2>
+          </div>
+          <div class="services__grid">
+            <article class="card reveal">
+              <span class="card__no">01</span>
+              <h3>Drenagem linfática</h3>
+              <p>
+                Reduz o inchaço, ativa a circulação e desincha o corpo de dentro
+                para fora.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="card__no">02</span>
+              <h3>Massagem modeladora</h3>
+              <p>
+                Define contornos, trabalha medidas localizadas e remodela a
+                silhueta.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="card__no">03</span>
+              <h3>Radiofrequência</h3>
+              <p>
+                Estimula colágeno para uma pele mais firme, lisa e com aspecto
+                renovado.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="card__no">04</span>
+              <h3>Lipocavitação</h3>
+              <p>
+                Atua na gordura localizada com tecnologia que ajuda a reduzir
+                medidas.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="card__no">05</span>
+              <h3>Pós-operatório</h3>
+              <p>
+                Acompanhamento que acelera a recuperação e cuida do resultado da
+                cirurgia.
+              </p>
+            </article>
+            <article class="card reveal">
+              <span class="card__no">06</span>
+              <h3>Massagem relaxante</h3>
+              <p>
+                Alívio profundo de tensões, com bem-estar para o corpo e para a
+                mente.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== ANTES / DEPOIS (assinatura et) ===================== -->
+      <section class="section beforeafter" id="resultados">
+        <div class="wrap">
+          <div class="ba__head reveal">
+            <p class="eyebrow" style="display: inline-block">
+              Resultados reais
+            </p>
+            <h2>
+              Belle
+              <span class="wordmark"><span class="et">et</span></span> Belle — o
+              antes e o depois.
+            </h2>
+          </div>
+          <!-- MOCK: substituir os blocos por fotos reais (com autorização das clientes) -->
+          <div
+            class="ba__compare"
+            id="baCompare"
+            role="slider"
+            aria-label="Comparar antes e depois"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="50"
+            tabindex="0"
+          >
+            <div class="ba__layer ba__after">depois</div>
+            <div class="ba__layer ba__before" id="baBefore">antes</div>
+            <span class="ba__tag ba__tag--before">Antes</span>
+            <span class="ba__tag ba__tag--after">Depois</span>
+            <div class="ba__handle" id="baHandle">
+              <span class="ba__knob">et</span>
+            </div>
+          </div>
+          <p class="ba__note">Arraste para comparar · imagens ilustrativas</p>
+        </div>
+      </section>
+
+      <!-- ===================== SOBRE ===================== -->
+      <!-- MOCK: nome, história e credenciais reais da profissional -->
+      <section class="section about" id="sobre">
+        <div class="wrap about__grid">
+          <div class="about__art reveal" aria-hidden="true"></div>
+          <div class="reveal">
+            <p class="eyebrow">Sobre o estúdio</p>
+            <h2>Cuidar de você é o nosso método.</h2>
+            <p>
+              O Belle et Belle nasceu da ideia de que estética é cuidado — não
+              padrão. Cada atendimento começa com uma avaliação atenta para
+              entender o seu corpo, a sua rotina e o seu objetivo.
+            </p>
+            <p>
+              São anos de experiência traduzidos em protocolos personalizados,
+              ambiente acolhedor e a tranquilidade de estar em boas mãos do
+              começo ao fim.
+            </p>
+            <div class="about__creds">
+              <div class="about__cred">
+                <span>6+</span><small>anos de prática</small>
+              </div>
+              <div class="about__cred">
+                <span>900+</span><small>clientes cuidadas</small>
+              </div>
+              <div class="about__cred">
+                <span>∞</span><small>atenção aos detalhes</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== DEPOIMENTOS ===================== -->
+      <!-- MOCK: depoimentos reais (vídeo converte ainda mais) -->
+      <section class="section testi">
+        <div class="wrap">
+          <div
+            class="sec-head reveal"
+            style="text-align: center; margin-inline: auto"
+          >
+            <p class="eyebrow" style="display: inline-block">
+              Quem já cuidou aqui
+            </p>
+            <h2>O que as clientes dizem.</h2>
+          </div>
+          <div class="testi__grid">
+            <blockquote class="quote reveal">
+              <p>
+                “Saí de cada sessão me sentindo mais leve e mais confiante. O
+                cuidado é de verdade.”
+              </p>
+              <footer>Marina S.</footer>
+            </blockquote>
+            <blockquote class="quote reveal">
+              <p>
+                “Fiz meu pós-operatório aqui e a recuperação foi muito mais
+                tranquila do que eu esperava.”
+              </p>
+              <footer>Carla R.</footer>
+            </blockquote>
+            <blockquote class="quote reveal">
+              <p>
+                “Resultado real e um atendimento que me faz voltar sempre.
+                Recomendo de olhos fechados.”
+              </p>
+              <footer>Juliana M.</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== FAQ ===================== -->
+      <section class="section" id="faq">
+        <div class="wrap">
+          <div
+            class="sec-head reveal"
+            style="text-align: center; margin-inline: auto"
+          >
+            <p class="eyebrow" style="display: inline-block">
+              Dúvidas frequentes
+            </p>
+            <h2>Antes de agendar.</h2>
+          </div>
+          <div class="faq__grid">
+            <div class="faq__item reveal">
+              <button class="faq__q" aria-expanded="false">
+                Os tratamentos doem? <span class="ico">+</span>
+              </button>
+              <div class="faq__a">
+                <p>
+                  A maioria dos protocolos é confortável e relaxante. Qualquer
+                  sensação é sempre conversada e ajustada ao seu limite durante
+                  a sessão.
+                </p>
+              </div>
+            </div>
+            <div class="faq__item reveal">
+              <button class="faq__q" aria-expanded="false">
+                Quantas sessões eu preciso? <span class="ico">+</span>
+              </button>
+              <div class="faq__a">
+                <p>
+                  Depende do seu objetivo e do seu corpo. Na avaliação inicial
+                  montamos um plano personalizado com a quantidade ideal de
+                  sessões para você.
+                </p>
+              </div>
+            </div>
+            <div class="faq__item reveal">
+              <button class="faq__q" aria-expanded="false">
+                Quanto tempo dura o resultado? <span class="ico">+</span>
+              </button>
+              <div class="faq__a">
+                <p>
+                  Os resultados são potencializados com a manutenção e hábitos
+                  saudáveis. Te orientamos sobre como prolongar e cuidar do que
+                  foi conquistado.
+                </p>
+              </div>
+            </div>
+            <div class="faq__item reveal">
+              <button class="faq__q" aria-expanded="false">
+                Existe alguma contraindicação? <span class="ico">+</span>
+              </button>
+              <div class="faq__a">
+                <p>
+                  Alguns procedimentos têm contraindicações específicas. Por
+                  isso toda jornada começa por uma avaliação, garantindo
+                  segurança em cada etapa.
+                </p>
+              </div>
+            </div>
+            <div class="faq__item reveal">
+              <button class="faq__q" aria-expanded="false">
+                Como faço para agendar? <span class="ico">+</span>
+              </button>
+              <div class="faq__a">
+                <p>
+                  É só tocar no botão de WhatsApp ou em “Agendar avaliação”.
+                  Respondemos rapidinho e marcamos o melhor horário para você.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CONTATO ===================== -->
+      <!-- MOCK: endereço, horários e WhatsApp reais -->
+      <section class="section contact" id="contato">
+        <div class="wrap contact__grid">
+          <div class="reveal">
+            <p class="eyebrow">Agende sua avaliação</p>
+            <h2>Vamos cuidar de você?</h2>
+            <ul class="contact__list">
+              <li><strong>Endereço</strong> Rua Exemplo, 123 — São Paulo/SP</li>
+              <li><strong>Horário</strong> Seg a Sáb · 9h às 19h</li>
+              <li><strong>WhatsApp</strong> (11) 9 0000-0000</li>
+              <li><strong>Instagram</strong> @belleetbellestudio</li>
+            </ul>
+            <a
+              href="https://wa.me/5511900000000?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20no%20Belle%20et%20Belle"
+              class="btn btn--primary"
+              target="_blank"
+              rel="noopener"
+              >Chamar no WhatsApp</a
+            >
+          </div>
+          <div class="contact__map reveal" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <span class="wordmark">Belle <span class="et">et</span> Belle</span>
+        <nav class="footer__social" aria-label="Redes sociais">
+          <a href="#">Instagram</a>
+          <a href="#">WhatsApp</a>
+          <a href="#">Google</a>
+        </nav>
+      </div>
+      <p class="footer__credit">
+        © 2026 Belle et Belle Studio · Estética corporal
+      </p>
+    </footer>
+
+    <!-- ===================== WHATSAPP FLUTUANTE ===================== -->
+    <!-- MOCK: trocar o número pelo real -->
+    <a
+      class="wa"
+      href="https://wa.me/5511900000000?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o"
+      target="_blank"
+      rel="noopener"
+      aria-label="Falar no WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.516 5.26l-.999 3.648 3.973-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"
+        />
+      </svg>
+      WhatsApp
+    </a>
+
+    <script>
+      (function () {
+        "use strict";
+
+        /* ---- Menu mobile ---- */
+        var toggle = document.getElementById("navToggle");
+        var links = document.getElementById("navLinks");
+        if (toggle && links) {
+          toggle.addEventListener("click", function () {
+            var open = links.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", String(open));
+            toggle.textContent = open ? "✕" : "☰";
+          });
+          links.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") {
+              links.classList.remove("open");
+              toggle.setAttribute("aria-expanded", "false");
+              toggle.textContent = "☰";
+            }
+          });
+        }
+
+        /* ---- FAQ accordion ---- */
+        var faqItems = document.querySelectorAll(".faq__item");
+        faqItems.forEach(function (item) {
+          var q = item.querySelector(".faq__q");
+          var a = item.querySelector(".faq__a");
+          if (!q || !a) return;
+          q.addEventListener("click", function () {
+            var isOpen = item.classList.toggle("open");
+            q.setAttribute("aria-expanded", String(isOpen));
+            a.style.maxHeight = isOpen ? a.scrollHeight + "px" : "0";
+          });
+        });
+
+        /* ---- Reveal on scroll ---- */
+        var reveals = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window && reveals.length) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in");
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15 },
+          );
+          reveals.forEach(function (el) {
+            io.observe(el);
+          });
+        } else {
+          reveals.forEach(function (el) {
+            el.classList.add("in");
+          });
+        }
+
+        /* ---- Slider antes/depois ---- */
+        var compare = document.getElementById("baCompare");
+        var before = document.getElementById("baBefore");
+        var handle = document.getElementById("baHandle");
+        if (compare && before && handle) {
+          var dragging = false;
+
+          function setPos(clientX) {
+            var rect = compare.getBoundingClientRect();
+            var pct = ((clientX - rect.left) / rect.width) * 100;
+            pct = Math.max(0, Math.min(100, pct));
+            before.style.clipPath = "inset(0 " + (100 - pct) + "% 0 0)";
+            handle.style.left = pct + "%";
+            compare.setAttribute("aria-valuenow", String(Math.round(pct)));
+          }
+
+          function start() {
+            dragging = true;
+          }
+          function stop() {
+            dragging = false;
+          }
+          function move(e) {
+            if (!dragging) return;
+            var x = e.touches ? e.touches[0].clientX : e.clientX;
+            setPos(x);
+          }
+
+          compare.addEventListener("mousedown", function (e) {
+            start();
+            setPos(e.clientX);
+          });
+          compare.addEventListener(
+            "touchstart",
+            function (e) {
+              start();
+              setPos(e.touches[0].clientX);
+            },
+            { passive: true },
+          );
+          window.addEventListener("mousemove", move);
+          window.addEventListener("touchmove", move, { passive: true });
+          window.addEventListener("mouseup", stop);
+          window.addEventListener("touchend", stop);
+
+          /* Acessível via teclado */
+          compare.addEventListener("keydown", function (e) {
+            var now = Number(compare.getAttribute("aria-valuenow")) || 50;
+            if (e.key === "ArrowLeft") {
+              now -= 5;
+            } else if (e.key === "ArrowRight") {
+              now += 5;
+            } else {
+              return;
+            }
+            now = Math.max(0, Math.min(100, now));
+            before.style.clipPath = "inset(0 " + (100 - now) + "% 0 0)";
+            handle.style.left = now + "%";
+            compare.setAttribute("aria-valuenow", String(now));
+            e.preventDefault();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
