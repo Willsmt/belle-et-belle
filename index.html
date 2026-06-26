@@ -3,41 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Belle et Belle Studio — Estética Corporal</title>
+    <title>Belle et Belle — Estética Facial & Corporal</title>
     <meta
       name="description"
-      content="Estúdio de estética corporal com protocolos personalizados. Agende sua avaliação."
+      content="Estética facial e corporal em Jardim Sapopemba, SP. Limpeza de pele, alongamento de cílios, massagem 360° e protocolos personalizados. Agende seu horário."
     />
-
-    <!-- Fontes: Fraunces (display) + Jost (corpo/UI) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Jost:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-
     <style>
-      /* ============================================================
-   TOKENS — paleta tons de pele + acento vinho/rosé + dourado
-   ============================================================ */
       :root {
-        --porcelain: #f4ece6; /* base */
-        --lait: #fbf7f3; /* cards claros */
-        --shell: #e7d6cb; /* bandas / divisores */
-        --cacau: #463029; /* texto escuro quente */
-        --espresso: #2d1e18; /* contraste / rodapé */
-        --vin: #7c4a56; /* acento (a "dobradiça" et) */
-        --vin-deep: #5e343f; /* acento hover */
-        --gold: #be9a6a; /* fios / detalhes champagne */
+        --paper: #faf6f3;
+        --white: #ffffff;
+        --ink: #1a1518;
+        --ink-soft: #4a4147;
+        --pink: #d81e78;
+        --pink-deep: #b01561;
+        --pink-soft: #f7dce8;
+        --pink-tint: #fceef4;
+        --mauve: #98707f;
 
-        --font-display: "Fraunces", Georgia, serif;
-        --font-body: "Jost", system-ui, sans-serif;
+        --font-display: "Marcellus", Georgia, serif;
+        --font-body: "Hanken Grotesk", system-ui, sans-serif;
 
-        --maxw: 1200px;
+        --maxw: 1180px;
         --gut: clamp(1.25rem, 4vw, 4rem);
-        --radius: 2px;
-        --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+        --ease: cubic-bezier(0.22, 0.7, 0.25, 1);
       }
 
       * {
@@ -45,20 +39,17 @@
         margin: 0;
         padding: 0;
       }
-
       html {
         scroll-behavior: smooth;
       }
-
       body {
         font-family: var(--font-body);
         font-weight: 300;
-        color: var(--cacau);
-        background: var(--porcelain);
-        line-height: 1.65;
+        color: var(--ink);
+        background: var(--paper);
+        line-height: 1.7;
         -webkit-font-smoothing: antialiased;
       }
-
       img {
         max-width: 100%;
         display: block;
@@ -67,364 +58,404 @@
         color: inherit;
         text-decoration: none;
       }
-
-      /* Tipografia base */
       h1,
       h2,
       h3 {
         font-family: var(--font-display);
         font-weight: 400;
-        line-height: 1.08;
-        letter-spacing: -0.01em;
-      }
-      .eyebrow {
-        font-size: 0.72rem;
-        font-weight: 500;
-        letter-spacing: 0.32em;
-        text-transform: uppercase;
-        color: var(--vin);
-      }
-      .eyebrow::before {
-        content: "—";
-        margin-right: 0.7em;
-        color: var(--gold);
+        line-height: 1.12;
       }
 
-      /* Marca "Belle et Belle" com o et em destaque */
+      .eyebrow {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: var(--mauve);
+      }
+
       .wordmark {
         font-family: var(--font-display);
-        letter-spacing: 0.01em;
+        font-size: 1.3rem;
+        letter-spacing: 0.04em;
       }
       .wordmark .et {
+        color: var(--pink);
         font-style: italic;
-        color: var(--gold);
-        padding: 0 0.12em;
+        padding: 0 0.06em;
+      }
+      .wordmark .by {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.5em;
+        font-weight: 400;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--mauve);
+        margin-top: 0.2em;
+        line-height: 1;
       }
 
-      /* Layout */
       .wrap {
         max-width: var(--maxw);
         margin-inline: auto;
         padding-inline: var(--gut);
       }
       .section {
-        padding-block: clamp(4.5rem, 9vw, 8rem);
+        padding-block: clamp(4.5rem, 9vw, 8.5rem);
       }
 
-      /* Botões */
       .btn {
         display: inline-flex;
         align-items: center;
-        gap: 0.6em;
+        gap: 0.55em;
         font-family: var(--font-body);
-        font-size: 0.92rem;
+        font-size: 0.8rem;
         font-weight: 500;
-        letter-spacing: 0.04em;
-        padding: 0.95em 1.8em;
-        border-radius: var(--radius);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 1.05em 2.1em;
+        border-radius: 2px;
         border: 1px solid transparent;
         cursor: pointer;
         transition: all 0.35s var(--ease);
       }
       .btn--primary {
-        background: var(--vin);
-        color: var(--lait);
+        background: var(--pink);
+        color: var(--white);
       }
       .btn--primary:hover {
-        background: var(--vin-deep);
+        background: var(--pink-deep);
         transform: translateY(-2px);
+      }
+      .btn--outline {
+        background: transparent;
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+      .btn--outline:hover {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .btn--light {
+        background: var(--paper);
+        color: var(--ink);
+      }
+      .btn--light:hover {
+        background: var(--pink);
+        color: var(--white);
       }
       .btn--ghost {
         background: transparent;
-        color: var(--cacau);
-        border-color: var(--cacau);
+        color: var(--paper);
+        border-color: rgba(250, 246, 243, 0.4);
       }
       .btn--ghost:hover {
-        background: var(--cacau);
-        color: var(--lait);
+        background: var(--paper);
+        color: var(--ink);
       }
 
-      /* Acessibilidade: foco visível */
       a:focus-visible,
-      button:focus-visible,
-      .btn:focus-visible {
-        outline: 2px solid var(--vin);
+      button:focus-visible {
+        outline: 2px solid var(--pink);
         outline-offset: 3px;
       }
 
-      /* ============================================================
-   NAV
-   ============================================================ */
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.8s var(--ease),
+          transform 0.8s var(--ease);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* assinatura: linha fina ondulada */
+      .thread {
+        display: block;
+        width: 100%;
+        height: 48px;
+        overflow: visible;
+      }
+      .thread path {
+        fill: none;
+        stroke: var(--pink);
+        stroke-width: 1.5;
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        transition: stroke-dashoffset 1.8s var(--ease);
+      }
+      .thread.in path {
+        stroke-dashoffset: 0;
+      }
+
+      /* NAV */
       .nav {
         position: sticky;
         top: 0;
         z-index: 50;
-        background: color-mix(in srgb, var(--porcelain) 88%, transparent);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid
-          color-mix(in srgb, var(--cacau) 8%, transparent);
+        background: rgba(250, 246, 243, 0.9);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(26, 21, 24, 0.07);
       }
       .nav__inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 72px;
-      }
-      .nav__brand {
-        font-size: 1.35rem;
+        height: 76px;
       }
       .nav__links {
         display: flex;
-        gap: 2rem;
+        gap: 2.2rem;
         align-items: center;
       }
       .nav__links a {
-        font-size: 0.85rem;
+        font-size: 0.82rem;
+        font-weight: 400;
         letter-spacing: 0.06em;
         transition: color 0.3s;
       }
       .nav__links a:hover {
-        color: var(--vin);
+        color: var(--pink);
       }
       .nav__toggle {
         display: none;
         background: none;
         border: 0;
-        font-size: 1.6rem;
-        color: var(--cacau);
+        font-size: 1.5rem;
+        color: var(--ink);
         cursor: pointer;
       }
 
-      /* ============================================================
-   HERO
-   ============================================================ */
-      .hero {
-        position: relative;
-        overflow: hidden;
-      }
+      /* HERO */
       .hero__grid {
         display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: clamp(2rem, 5vw, 5rem);
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: clamp(2rem, 6vw, 6rem);
         align-items: center;
         padding-block: clamp(3.5rem, 8vw, 7rem);
       }
+      .hero__eyebrow {
+        margin-bottom: 1.6rem;
+      }
       .hero__title {
-        font-size: clamp(2.6rem, 6.5vw, 5.2rem);
-        margin: 1.2rem 0 1.5rem;
+        font-size: clamp(2.8rem, 7vw, 5.4rem);
+        letter-spacing: -0.01em;
+        margin-bottom: 1.6rem;
       }
       .hero__title em {
         font-style: italic;
-        color: var(--vin);
+        color: var(--pink);
       }
       .hero__sub {
-        font-size: 1.08rem;
+        font-size: 1.1rem;
+        font-weight: 300;
         max-width: 40ch;
-        color: color-mix(in srgb, var(--cacau) 80%, transparent);
+        color: var(--ink-soft);
       }
       .hero__cta {
         display: flex;
         gap: 1rem;
-        margin-top: 2.2rem;
+        margin-top: 2.6rem;
         flex-wrap: wrap;
+        align-items: center;
+      }
+      .hero__rating {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-top: 2.4rem;
+      }
+      .hero__rating .stars {
+        color: var(--pink);
+        letter-spacing: 0.1em;
+      }
+      .hero__rating small {
+        font-size: 0.82rem;
+        color: var(--ink-soft);
       }
 
-      /* Retrato (placeholder elegante) */
       .hero__art {
         position: relative;
+      }
+      .hero__frame {
         aspect-ratio: 4/5;
-        border-radius: var(--radius);
-        background:
-          radial-gradient(
-            120% 90% at 70% 20%,
-            color-mix(in srgb, var(--vin) 22%, var(--shell)) 0%,
-            transparent 55%
-          ),
-          linear-gradient(
-            160deg,
-            var(--shell),
-            color-mix(in srgb, var(--cacau) 30%, var(--shell))
-          );
+        border-radius: 50% 50% 6px 6px / 32% 32% 6px 6px;
+        background: var(--pink-tint);
+        border: 1px solid var(--pink-soft);
+        position: relative;
         overflow: hidden;
       }
-      .hero__art::after {
-        content: "foto da profissional / espaço";
+      .hero__frame::after {
+        content: "foto do studio / Patrícia";
         position: absolute;
         inset: 0;
         display: grid;
         place-items: center;
-        font-size: 0.78rem;
-        letter-spacing: 0.2em;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: color-mix(in srgb, var(--lait) 75%, transparent);
+        color: var(--mauve);
       }
-      .hero__art-line {
-        /* fio dourado decorativo */
+      .hero__dot {
         position: absolute;
-        left: -10%;
-        bottom: 14%;
-        width: 120%;
-        height: 1px;
-        background: var(--gold);
-        opacity: 0.6;
-        transform: rotate(-6deg);
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--pink);
       }
 
-      /* ============================================================
-   STATS (prova social)
-   ============================================================ */
+      /* STATS */
       .stats {
-        background: var(--espresso);
-        color: var(--lait);
+        border-top: 1px solid rgba(26, 21, 24, 0.1);
+        border-bottom: 1px solid rgba(26, 21, 24, 0.1);
       }
       .stats__grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         text-align: center;
-        padding-block: clamp(2.5rem, 5vw, 3.5rem);
+        padding-block: clamp(2.2rem, 4vw, 3rem);
         gap: 1rem;
-      }
-      .stats__item {
-        padding: 0.5rem;
       }
       .stats__num {
         font-family: var(--font-display);
-        font-size: clamp(2rem, 4vw, 2.9rem);
-        color: var(--gold);
+        font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+        color: var(--pink);
       }
       .stats__label {
-        font-size: 0.78rem;
+        font-size: 0.72rem;
+        font-weight: 400;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        opacity: 0.78;
-        margin-top: 0.3rem;
+        color: var(--ink-soft);
+        margin-top: 0.35rem;
       }
       .stats__item + .stats__item {
-        border-left: 1px solid color-mix(in srgb, var(--lait) 14%, transparent);
+        border-left: 1px solid rgba(26, 21, 24, 0.1);
       }
 
-      /* ============================================================
-   SERVIÇOS
-   ============================================================ */
+      /* SEC HEAD */
       .sec-head {
-        max-width: 50ch;
-        margin-bottom: 3rem;
+        margin-bottom: 3.4rem;
       }
       .sec-head h2 {
-        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-size: clamp(2.1rem, 4.6vw, 3.4rem);
         margin-top: 0.8rem;
       }
+      .sec-head h2 em {
+        font-style: italic;
+        color: var(--pink);
+      }
+
+      /* SERVIÇOS */
       .services__grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
+        gap: 1.4rem;
       }
       .card {
-        background: var(--lait);
-        border: 1px solid color-mix(in srgb, var(--cacau) 7%, transparent);
-        border-radius: var(--radius);
-        padding: 2.2rem 1.9rem;
+        background: var(--white);
+        border: 1px solid rgba(26, 21, 24, 0.08);
+        border-radius: 4px;
+        padding: 2.4rem 2rem;
         transition:
           transform 0.4s var(--ease),
-          box-shadow 0.4s;
+          box-shadow 0.4s,
+          border-color 0.4s;
       }
       .card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 18px 40px -22px
-          color-mix(in srgb, var(--cacau) 45%, transparent);
+        box-shadow: 0 20px 44px -26px rgba(216, 30, 120, 0.3);
+        border-color: var(--pink-soft);
       }
-      .card__no {
-        font-family: var(--font-display);
-        font-style: italic;
-        color: var(--gold);
-        font-size: 1.1rem;
+      .card__mark {
+        width: 34px;
+        height: 1.5px;
+        background: var(--pink);
+        margin-bottom: 1.3rem;
       }
       .card h3 {
-        font-size: 1.45rem;
-        margin: 0.9rem 0 0.6rem;
+        font-size: 1.35rem;
+        margin-bottom: 0.6rem;
       }
       .card p {
         font-size: 0.95rem;
-        color: color-mix(in srgb, var(--cacau) 78%, transparent);
+        font-weight: 300;
+        color: var(--ink-soft);
       }
 
-      /* ============================================================
-   ANTES / DEPOIS — assinatura "et"
-   ============================================================ */
-      .beforeafter {
-        background: var(--shell);
-      }
+      /* ANTES/DEPOIS */
       .ba__head {
         text-align: center;
         margin-bottom: 3rem;
       }
       .ba__head h2 {
-        font-size: clamp(2rem, 4.5vw, 3.2rem);
-        margin-top: 0.6rem;
+        font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+        margin-top: 0.8rem;
       }
-
-      /* Slider comparativo */
+      .ba__head h2 em {
+        font-style: italic;
+        color: var(--pink);
+      }
       .ba__compare {
         position: relative;
-        max-width: 760px;
+        max-width: 740px;
         margin-inline: auto;
         aspect-ratio: 16/10;
-        border-radius: var(--radius);
+        border-radius: 6px;
         overflow: hidden;
         cursor: ew-resize;
         user-select: none;
-        box-shadow: 0 25px 60px -30px
-          color-mix(in srgb, var(--cacau) 60%, transparent);
+        box-shadow: 0 30px 60px -32px rgba(26, 21, 24, 0.4);
       }
       .ba__layer {
         position: absolute;
         inset: 0;
         display: grid;
         place-items: center;
-        font-size: 0.8rem;
-        letter-spacing: 0.25em;
+        font-size: 0.78rem;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
-        color: color-mix(in srgb, var(--lait) 80%, transparent);
       }
       .ba__after {
-        background: linear-gradient(
-          140deg,
-          color-mix(in srgb, var(--vin) 35%, var(--shell)),
-          var(--cacau)
-        );
+        background: var(--pink-tint);
+        color: var(--mauve);
       }
       .ba__before {
-        background: linear-gradient(
-          140deg,
-          color-mix(in srgb, var(--cacau) 20%, var(--shell)),
-          color-mix(in srgb, var(--cacau) 55%, var(--shell))
-        );
+        background: var(--ink);
+        color: rgba(250, 246, 243, 0.5);
         clip-path: inset(0 50% 0 0);
       }
       .ba__tag {
         position: absolute;
         top: 1rem;
-        padding: 0.35em 0.9em;
-        background: color-mix(in srgb, var(--espresso) 65%, transparent);
-        color: var(--lait);
-        font-size: 0.7rem;
-        letter-spacing: 0.18em;
+        padding: 0.35em 1em;
+        font-size: 0.66rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
-        border-radius: var(--radius);
+        border-radius: 2px;
       }
       .ba__tag--before {
         left: 1rem;
+        background: var(--paper);
+        color: var(--ink);
       }
       .ba__tag--after {
         right: 1rem;
+        background: var(--pink);
+        color: var(--white);
       }
       .ba__handle {
         position: absolute;
         top: 0;
         bottom: 0;
         left: 50%;
-        width: 2px;
-        background: var(--lait);
+        width: 1px;
+        background: var(--paper);
         transform: translateX(-50%);
         pointer-events: none;
       }
@@ -433,125 +464,135 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
-        background: var(--lait);
-        color: var(--vin);
+        background: var(--paper);
+        color: var(--pink);
         display: grid;
         place-items: center;
         font-family: var(--font-display);
         font-style: italic;
-        font-size: 1.1rem;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        font-size: 0.95rem;
+        box-shadow: 0 4px 16px rgba(26, 21, 24, 0.3);
       }
       .ba__note {
         text-align: center;
         margin-top: 1.4rem;
-        font-size: 0.82rem;
-        letter-spacing: 0.08em;
-        color: color-mix(in srgb, var(--cacau) 65%, transparent);
+        font-size: 0.8rem;
+        color: var(--ink-soft);
       }
 
-      /* ============================================================
-   SOBRE
-   ============================================================ */
+      /* SOBRE */
+      .about {
+        background: var(--pink-tint);
+      }
       .about__grid {
         display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
+        grid-template-columns: 0.85fr 1.15fr;
         gap: clamp(2rem, 5vw, 4.5rem);
         align-items: center;
       }
-      .about__art {
-        aspect-ratio: 1/1;
-        border-radius: var(--radius);
+      .about__frame {
+        aspect-ratio: 4/5;
+        border-radius: 50% 50% 6px 6px / 28% 28% 6px 6px;
+        background: var(--pink-soft);
+        border: 1px solid rgba(216, 30, 120, 0.18);
         position: relative;
-        background: linear-gradient(
-          150deg,
-          var(--shell),
-          color-mix(in srgb, var(--vin) 25%, var(--shell))
-        );
+        overflow: hidden;
       }
-      .about__art::after {
-        content: "retrato";
+      .about__frame::after {
+        content: "retrato da Patrícia";
         position: absolute;
         inset: 0;
         display: grid;
         place-items: center;
-        font-size: 0.75rem;
-        letter-spacing: 0.2em;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: color-mix(in srgb, var(--lait) 70%, transparent);
+        color: var(--mauve);
       }
       .about h2 {
-        font-size: clamp(2rem, 4.5vw, 3rem);
-        margin: 0.8rem 0 1.3rem;
+        font-size: clamp(2.1rem, 4.6vw, 3.2rem);
+        margin: 0.8rem 0 1.4rem;
+      }
+      .about h2 em {
+        font-style: italic;
+        color: var(--pink);
       }
       .about p {
-        max-width: 52ch;
+        max-width: 50ch;
         margin-bottom: 1rem;
-        color: color-mix(in srgb, var(--cacau) 82%, transparent);
+        color: var(--ink-soft);
       }
       .about__creds {
         display: flex;
-        gap: 2rem;
-        margin-top: 1.8rem;
+        gap: 3rem;
+        margin-top: 2rem;
         flex-wrap: wrap;
       }
       .about__cred span {
         display: block;
         font-family: var(--font-display);
-        font-size: 1.6rem;
-        color: var(--vin);
+        font-size: 1.9rem;
+        color: var(--pink);
       }
       .about__cred small {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        opacity: 0.7;
+        color: var(--ink-soft);
+      }
+      .about__btn {
+        margin-top: 2.2rem;
       }
 
-      /* ============================================================
-   DEPOIMENTOS
-   ============================================================ */
-      .testi {
-        background: var(--lait);
-      }
+      /* DEPOIMENTOS */
       .testi__grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
+        gap: 1.4rem;
       }
       .quote {
+        background: var(--white);
+        border: 1px solid rgba(26, 21, 24, 0.08);
+        border-radius: 4px;
         padding: 2.2rem 2rem;
-        border-top: 2px solid var(--gold);
-        background: var(--porcelain);
-        border-radius: var(--radius);
+        position: relative;
+      }
+      .quote__mark {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        line-height: 0.6;
+        color: var(--pink-soft);
+        margin-bottom: 0.6rem;
+      }
+      .quote__stars {
+        color: var(--pink);
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.9rem;
       }
       .quote p {
-        font-family: var(--font-display);
-        font-style: italic;
-        font-size: 1.15rem;
-        line-height: 1.5;
+        font-weight: 300;
+        font-size: 0.98rem;
+        line-height: 1.7;
       }
       .quote footer {
-        margin-top: 1.4rem;
-        font-size: 0.8rem;
+        margin-top: 1.3rem;
+        font-size: 0.72rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--vin);
+        color: var(--mauve);
       }
 
-      /* ============================================================
-   FAQ
-   ============================================================ */
+      /* FAQ */
       .faq__grid {
         max-width: 800px;
         margin-inline: auto;
       }
       .faq__item {
-        border-bottom: 1px solid
-          color-mix(in srgb, var(--cacau) 12%, transparent);
+        border-bottom: 1px solid rgba(26, 21, 24, 0.1);
       }
       .faq__q {
         width: 100%;
@@ -560,20 +601,20 @@
         border: 0;
         cursor: pointer;
         font-family: var(--font-display);
-        font-size: 1.25rem;
-        color: var(--cacau);
-        padding: 1.4rem 0;
+        font-size: 1.2rem;
+        color: var(--ink);
+        padding: 1.5rem 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 1rem;
       }
       .faq__q .ico {
-        font-family: var(--font-body);
-        font-weight: 300;
-        color: var(--vin);
+        color: var(--pink);
         transition: transform 0.35s var(--ease);
         flex: 0 0 auto;
+        font-weight: 300;
+        font-family: var(--font-body);
       }
       .faq__item.open .faq__q .ico {
         transform: rotate(45deg);
@@ -584,17 +625,16 @@
         transition: max-height 0.4s var(--ease);
       }
       .faq__a p {
-        padding-bottom: 1.4rem;
-        color: color-mix(in srgb, var(--cacau) 80%, transparent);
-        max-width: 65ch;
+        padding-bottom: 1.5rem;
+        color: var(--ink-soft);
+        font-weight: 300;
+        max-width: 66ch;
       }
 
-      /* ============================================================
-   CONTATO
-   ============================================================ */
+      /* CONTATO */
       .contact {
-        background: var(--espresso);
-        color: var(--lait);
+        background: var(--ink);
+        color: var(--paper);
       }
       .contact__grid {
         display: grid;
@@ -602,94 +642,98 @@
         gap: clamp(2rem, 5vw, 4rem);
         align-items: center;
       }
-      .contact h2 {
-        font-size: clamp(2rem, 4.5vw, 3.2rem);
-        color: var(--lait);
-        margin: 0.8rem 0 1.4rem;
-      }
       .contact .eyebrow {
-        color: var(--gold);
+        color: var(--pink);
+      }
+      .contact h2 {
+        font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+        color: var(--paper);
+        margin: 0.8rem 0 1.6rem;
+      }
+      .contact h2 em {
+        font-style: italic;
+        color: var(--pink);
       }
       .contact__list {
         list-style: none;
         margin: 1.8rem 0;
       }
       .contact__list li {
-        padding: 0.5rem 0;
-        border-bottom: 1px solid
-          color-mix(in srgb, var(--lait) 12%, transparent);
+        padding: 0.7rem 0;
+        border-bottom: 1px solid rgba(250, 246, 243, 0.12);
         font-size: 0.95rem;
+        font-weight: 300;
+        display: flex;
+        gap: 1rem;
       }
       .contact__list strong {
-        display: inline-block;
-        min-width: 110px;
-        color: var(--gold);
+        min-width: 92px;
+        color: var(--pink);
         font-weight: 500;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding-top: 0.35em;
       }
       .contact__map {
         aspect-ratio: 4/3;
-        border-radius: var(--radius);
+        border-radius: 6px;
         position: relative;
-        background: linear-gradient(
-          150deg,
-          color-mix(in srgb, var(--gold) 25%, var(--espresso)),
-          var(--espresso)
-        );
-        border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+        background: rgba(216, 30, 120, 0.1);
+        border: 1px solid rgba(216, 30, 120, 0.25);
       }
       .contact__map::after {
-        content: "mapa / Google Maps";
+        content: "mapa · Google Maps";
         position: absolute;
         inset: 0;
         display: grid;
         place-items: center;
-        font-size: 0.78rem;
-        letter-spacing: 0.18em;
+        font-size: 0.74rem;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: color-mix(in srgb, var(--lait) 60%, transparent);
+        color: rgba(250, 246, 243, 0.4);
+      }
+      .contact__btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 1.8rem;
       }
 
-      /* ============================================================
-   RODAPÉ
-   ============================================================ */
+      /* FOOTER */
       .footer {
-        background: var(--espresso);
-        color: color-mix(in srgb, var(--lait) 70%, transparent);
-        padding-block: 2.5rem;
-        border-top: 1px solid color-mix(in srgb, var(--lait) 10%, transparent);
+        background: var(--ink);
+        color: rgba(250, 246, 243, 0.55);
+        padding-block: 2.6rem;
+        border-top: 1px solid rgba(250, 246, 243, 0.1);
       }
       .footer__inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 1rem;
         flex-wrap: wrap;
+        gap: 1rem;
       }
       .footer .wordmark {
-        font-size: 1.3rem;
-        color: var(--lait);
+        color: var(--paper);
       }
       .footer__social {
         display: flex;
-        gap: 1.4rem;
-        font-size: 0.85rem;
-        letter-spacing: 0.06em;
+        gap: 1.6rem;
+        font-size: 0.82rem;
       }
       .footer__social a:hover {
-        color: var(--gold);
+        color: var(--pink);
       }
       .footer__credit {
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-        opacity: 0.6;
-        width: 100%;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
         text-align: center;
-        margin-top: 1.5rem;
+        margin-top: 1.6rem;
+        opacity: 0.45;
       }
 
-      /* ============================================================
-   WHATSAPP FLUTUANTE
-   ============================================================ */
+      /* WHATSAPP */
       .wa {
         position: fixed;
         right: clamp(1rem, 3vw, 2rem);
@@ -697,65 +741,42 @@
         z-index: 60;
         display: inline-flex;
         align-items: center;
-        gap: 0.6em;
+        gap: 0.55em;
         background: #25d366;
         color: #fff;
-        padding: 0.85em 1.4em;
+        padding: 0.8em 1.3em;
         border-radius: 50px;
         font-weight: 500;
-        font-size: 0.9rem;
-        box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.4);
+        font-size: 0.88rem;
+        box-shadow: 0 8px 26px rgba(0, 0, 0, 0.22);
         transition: transform 0.3s var(--ease);
       }
       .wa:hover {
         transform: translateY(-3px);
       }
       .wa svg {
-        width: 20px;
-        height: 20px;
+        width: 19px;
+        height: 19px;
         fill: #fff;
       }
 
-      /* ============================================================
-   REVEAL (scroll)
-   ============================================================ */
-      .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        transition:
-          opacity 0.7s var(--ease),
-          transform 0.7s var(--ease);
-      }
-      .reveal.in {
-        opacity: 1;
-        transform: none;
-      }
-
-      /* ============================================================
-   RESPONSIVO
-   ============================================================ */
-      /* Tablet (retrato/paisagem) — grids em 2 colunas */
+      /* RESPONSIVO */
       @media (max-width: 1024px) {
-        .services__grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
+        .services__grid,
         .testi__grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
-
-      /* Celular — coluna única e menu compacto */
-      @media (max-width: 880px) {
+      @media (max-width: 840px) {
         .nav__links {
           position: fixed;
-          inset: 72px 0 auto 0;
+          inset: 76px 0 auto 0;
           flex-direction: column;
           gap: 0;
-          background: var(--porcelain);
-          border-bottom: 1px solid
-            color-mix(in srgb, var(--cacau) 10%, transparent);
+          background: var(--paper);
+          border-bottom: 1px solid rgba(26, 21, 24, 0.08);
           padding: 1rem var(--gut);
-          transform: translateY(-130%);
+          transform: translateY(-135%);
           transition: transform 0.4s var(--ease);
         }
         .nav__links.open {
@@ -764,8 +785,7 @@
         .nav__links a {
           padding: 0.9rem 0;
           width: 100%;
-          border-bottom: 1px solid
-            color-mix(in srgb, var(--cacau) 8%, transparent);
+          border-bottom: 1px solid rgba(26, 21, 24, 0.07);
         }
         .nav__links .btn {
           margin-top: 0.6rem;
@@ -778,20 +798,18 @@
         }
         .hero__art {
           order: -1;
-          aspect-ratio: 5/4;
+          max-width: 360px;
         }
         .stats__grid {
           grid-template-columns: repeat(2, 1fr);
         }
+        .stats__item:nth-child(odd) {
+          border-left: none;
+        }
         .stats__item:nth-child(3),
-        .stats__item:nth-child(1) {
-          border-left: 0;
-        }
-        .stats__item:nth-child(3) {
-          border-top: 1px solid color-mix(in srgb, var(--lait) 14%, transparent);
-        }
         .stats__item:nth-child(4) {
-          border-top: 1px solid color-mix(in srgb, var(--lait) 14%, transparent);
+          border-top: 1px solid rgba(26, 21, 24, 0.1);
+          padding-top: 1.4rem;
         }
         .services__grid,
         .testi__grid {
@@ -801,11 +819,11 @@
         .contact__grid {
           grid-template-columns: 1fr;
         }
-        .about__art {
+        .about__frame {
           order: -1;
+          max-width: 340px;
         }
       }
-
       @media (prefers-reduced-motion: reduce) {
         * {
           animation: none !important;
@@ -816,22 +834,33 @@
           opacity: 1;
           transform: none;
         }
+        .thread path {
+          stroke-dashoffset: 0;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- ===================== NAV ===================== -->
+    <!-- NAV -->
     <header class="nav">
       <div class="wrap nav__inner">
-        <a href="#top" class="wordmark nav__brand"
-          >Belle <span class="et">et</span> Belle</a
+        <a href="#top" class="wordmark"
+          >Belle <span class="et">et</span> Belle<span class="by"
+            >by Patrícia Almeida</span
+          ></a
         >
         <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
-          <a href="#servicos">Tratamentos</a>
+          <a href="#servicos">Serviços</a>
           <a href="#resultados">Resultados</a>
           <a href="#sobre">Sobre</a>
           <a href="#contato">Contato</a>
-          <a href="#contato" class="btn btn--primary">Agendar avaliação</a>
+          <a
+            href="http://www.simplesagenda.com.br/agendamento_m.php?id=5af79de6bd8b6a2db63376e69246e719"
+            target="_blank"
+            rel="noopener"
+            class="btn btn--primary"
+            >Agendar</a
+          >
         </nav>
         <button
           class="nav__toggle"
@@ -845,125 +874,153 @@
     </header>
 
     <main id="top">
-      <!-- ===================== HERO ===================== -->
+      <!-- HERO -->
       <section class="hero">
         <div class="wrap hero__grid">
-          <div class="hero__copy reveal">
-            <p class="eyebrow">Estética corporal · São Paulo</p>
-            <h1 class="hero__title">Você, e a sua <em>melhor versão</em>.</h1>
+          <div class="reveal">
+            <p class="eyebrow hero__eyebrow">
+              Estética facial &amp; corporal · Jd. Sapopemba, SP
+            </p>
+            <h1 class="hero__title">
+              O cuidado que faz você <em>brilhar</em>.
+            </h1>
             <p class="hero__sub">
-              Protocolos personalizados de estética corporal que cuidam do seu
-              corpo e da sua confiança — no seu tempo, no seu ritmo.
+              Limpeza de pele, cílios e protocolos personalizados — com método
+              próprio e a atenção que cada detalhe do seu rosto merece.
             </p>
             <div class="hero__cta">
-              <a href="#contato" class="btn btn--primary">Agendar avaliação</a>
-              <a href="#servicos" class="btn btn--ghost">Ver tratamentos</a>
+              <a
+                href="http://www.simplesagenda.com.br/agendamento_m.php?id=5af79de6bd8b6a2db63376e69246e719"
+                target="_blank"
+                rel="noopener"
+                class="btn btn--primary"
+                >Agendar horário</a
+              >
+              <a href="#servicos" class="btn btn--outline">Conhecer o studio</a>
+            </div>
+            <div class="hero__rating">
+              <span class="stars">★★★★★</span>
+              <small>5,0 · 33 avaliações no Google</small>
             </div>
           </div>
-          <div class="hero__art reveal" aria-hidden="true">
-            <span class="hero__art-line"></span>
+          <div class="hero__art reveal">
+            <div class="hero__frame"></div>
+            <span class="hero__dot" style="top: 8%; right: 6%"></span>
+            <span
+              class="hero__dot"
+              style="bottom: 14%; left: -2%; background: var(--mauve)"
+            ></span>
           </div>
         </div>
       </section>
 
-      <!-- ===================== STATS / PROVA SOCIAL ===================== -->
-      <!-- MOCK: trocar pelos números reais do estúdio -->
+      <!-- linha assinatura -->
+      <div class="wrap">
+        <svg
+          class="thread"
+          viewBox="0 0 1100 48"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0,24 C140,2 260,46 400,24 C540,2 660,46 800,24 C940,2 1020,40 1100,22"
+          />
+        </svg>
+      </div>
+
+      <!-- STATS -->
       <section class="stats">
         <div class="wrap stats__grid">
           <div class="stats__item">
-            <div class="stats__num">6+</div>
-            <div class="stats__label">anos de estúdio</div>
-          </div>
-          <div class="stats__item">
-            <div class="stats__num">900+</div>
-            <div class="stats__label">clientes atendidas</div>
-          </div>
-          <div class="stats__item">
-            <div class="stats__num">4,9★</div>
+            <div class="stats__num">5,0</div>
             <div class="stats__label">avaliação Google</div>
           </div>
           <div class="stats__item">
+            <div class="stats__num">33</div>
+            <div class="stats__label">avaliações reais</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__num">6+</div>
+            <div class="stats__label">anos de prática</div>
+          </div>
+          <div class="stats__item">
             <div class="stats__num">100%</div>
-            <div class="stats__label">protocolos sob medida</div>
+            <div class="stats__label">personalizado</div>
           </div>
         </div>
       </section>
 
-      <!-- ===================== SERVIÇOS ===================== -->
-      <!-- MOCK: ajustar lista conforme os serviços reais -->
+      <!-- SERVIÇOS -->
       <section class="section" id="servicos">
         <div class="wrap">
           <div class="sec-head reveal">
             <p class="eyebrow">Tratamentos</p>
-            <h2>Cada protocolo nasce do que o seu corpo precisa.</h2>
+            <h2>O que cuidamos <em>por você</em>.</h2>
           </div>
+          <!-- MOCK: confirmar lista completa com a Patrícia -->
           <div class="services__grid">
             <article class="card reveal">
-              <span class="card__no">01</span>
-              <h3>Drenagem linfática</h3>
+              <div class="card__mark"></div>
+              <h3>Limpeza de pele</h3>
               <p>
-                Reduz o inchaço, ativa a circulação e desincha o corpo de dentro
-                para fora.
+                Método exclusivo que trata a pele a fundo sem dor, devolvendo
+                viço e renovação ao rosto.
               </p>
             </article>
             <article class="card reveal">
-              <span class="card__no">02</span>
-              <h3>Massagem modeladora</h3>
+              <div class="card__mark"></div>
+              <h3>Alongamento de cílios</h3>
               <p>
-                Define contornos, trabalha medidas localizadas e remodela a
-                silhueta.
+                Cílios naturais do seu jeito — volume, curvatura e um resultado
+                que dura semanas.
               </p>
             </article>
             <article class="card reveal">
-              <span class="card__no">03</span>
-              <h3>Radiofrequência</h3>
+              <div class="card__mark"></div>
+              <h3>Massagem 360°</h3>
               <p>
-                Estimula colágeno para uma pele mais firme, lisa e com aspecto
-                renovado.
+                Relaxamento profundo que cuida do corpo inteiro e alivia tensões
+                de verdade.
               </p>
             </article>
             <article class="card reveal">
-              <span class="card__no">04</span>
-              <h3>Lipocavitação</h3>
+              <div class="card__mark"></div>
+              <h3>Hydra Gloss</h3>
               <p>
-                Atua na gordura localizada com tecnologia que ajuda a reduzir
-                medidas.
+                Hidratação intensa para os lábios, com efeito glossy delicado e
+                duradouro.
               </p>
             </article>
             <article class="card reveal">
-              <span class="card__no">05</span>
-              <h3>Pós-operatório</h3>
+              <div class="card__mark"></div>
+              <h3>Dermaplaning</h3>
               <p>
-                Acompanhamento que acelera a recuperação e cuida do resultado da
-                cirurgia.
+                Remove penugem e células mortas. Pele lisa, luminosa e pronta
+                para receber ativos.
               </p>
             </article>
             <article class="card reveal">
-              <span class="card__no">06</span>
-              <h3>Massagem relaxante</h3>
+              <div class="card__mark"></div>
+              <h3>Estética corporal</h3>
               <p>
-                Alívio profundo de tensões, com bem-estar para o corpo e para a
-                mente.
+                Protocolos para o corpo com foco em resultado real, bem-estar e
+                autoestima.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ===================== ANTES / DEPOIS (assinatura et) ===================== -->
-      <section class="section beforeafter" id="resultados">
+      <!-- ANTES/DEPOIS -->
+      <section class="section" id="resultados" style="padding-top: 1rem">
         <div class="wrap">
           <div class="ba__head reveal">
             <p class="eyebrow" style="display: inline-block">
               Resultados reais
             </p>
-            <h2>
-              Belle
-              <span class="wordmark"><span class="et">et</span></span> Belle — o
-              antes e o depois.
-            </h2>
+            <h2>Antes <em>et</em> depois.</h2>
           </div>
-          <!-- MOCK: substituir os blocos por fotos reais (com autorização das clientes) -->
+          <!-- MOCK: trocar pelas fotos reais (com autorização das clientes) -->
           <div
             class="ba__compare"
             id="baCompare"
@@ -982,93 +1039,100 @@
               <span class="ba__knob">et</span>
             </div>
           </div>
-          <p class="ba__note">Arraste para comparar · imagens ilustrativas</p>
+          <p class="ba__note">
+            Arraste para comparar · imagens ilustrativas · fotos reais em breve
+          </p>
         </div>
       </section>
 
-      <!-- ===================== SOBRE ===================== -->
-      <!-- MOCK: nome, história e credenciais reais da profissional -->
+      <!-- SOBRE -->
       <section class="section about" id="sobre">
         <div class="wrap about__grid">
-          <div class="about__art reveal" aria-hidden="true"></div>
+          <div class="about__frame reveal"></div>
           <div class="reveal">
-            <p class="eyebrow">Sobre o estúdio</p>
-            <h2>Cuidar de você é o nosso método.</h2>
+            <p class="eyebrow">Quem cuida de você</p>
+            <h2>O talento é fazer <em>você brilhar</em>.</h2>
             <p>
-              O Belle et Belle nasceu da ideia de que estética é cuidado — não
-              padrão. Cada atendimento começa com uma avaliação atenta para
-              entender o seu corpo, a sua rotina e o seu objetivo.
+              Mais de seis anos dedicados a pele, cílios e bem-estar — com
+              método próprio, mãos cuidadosas e atenção a cada detalhe. Aqui
+              cada atendimento começa ouvindo você.
             </p>
             <p>
-              São anos de experiência traduzidos em protocolos personalizados,
-              ambiente acolhedor e a tranquilidade de estar em boas mãos do
-              começo ao fim.
+              O resultado que você procura vem do cuidado personalizado, num
+              espaço pensado para você se sentir acolhida do início ao fim.
             </p>
             <div class="about__creds">
               <div class="about__cred">
                 <span>6+</span><small>anos de prática</small>
               </div>
               <div class="about__cred">
-                <span>900+</span><small>clientes cuidadas</small>
+                <span>5,0★</span><small>no Google</small>
               </div>
               <div class="about__cred">
-                <span>∞</span><small>atenção aos detalhes</small>
+                <span>33</span><small>avaliações reais</small>
               </div>
+            </div>
+            <div class="about__btn">
+              <a
+                href="http://www.simplesagenda.com.br/agendamento_m.php?id=5af79de6bd8b6a2db63376e69246e719"
+                target="_blank"
+                rel="noopener"
+                class="btn btn--primary"
+                >Quero agendar</a
+              >
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ===================== DEPOIMENTOS ===================== -->
-      <!-- MOCK: depoimentos reais (vídeo converte ainda mais) -->
-      <section class="section testi">
+      <!-- DEPOIMENTOS (reais do Google) -->
+      <section class="section">
         <div class="wrap">
-          <div
-            class="sec-head reveal"
-            style="text-align: center; margin-inline: auto"
-          >
+          <div class="sec-head reveal" style="text-align: center">
             <p class="eyebrow" style="display: inline-block">
-              Quem já cuidou aqui
+              Quem já esteve aqui
             </p>
-            <h2>O que as clientes dizem.</h2>
+            <h2>Nas palavras das <em>clientes</em>.</h2>
           </div>
           <div class="testi__grid">
             <blockquote class="quote reveal">
+              <div class="quote__mark">"</div>
+              <div class="quote__stars">★★★★★</div>
               <p>
-                “Saí de cada sessão me sentindo mais leve e mais confiante. O
-                cuidado é de verdade.”
+                Profissional maravilhosa, com mãos de fada e super atenciosa.
               </p>
-              <footer>Marina S.</footer>
+              <footer>Flávia Andrade · Google</footer>
             </blockquote>
             <blockquote class="quote reveal">
+              <div class="quote__mark">"</div>
+              <div class="quote__stars">★★★★★</div>
               <p>
-                “Fiz meu pós-operatório aqui e a recuperação foi muito mais
-                tranquila do que eu esperava.”
+                Espaço aconchegante, a Pati é maravilhosa em tudo que se propõe
+                a fazer, atenciosa e sempre explica tudo com calma e paciência.
               </p>
-              <footer>Carla R.</footer>
+              <footer>Geovanna Rossi · Google</footer>
             </blockquote>
             <blockquote class="quote reveal">
+              <div class="quote__mark">"</div>
+              <div class="quote__stars">★★★★★</div>
               <p>
-                “Resultado real e um atendimento que me faz voltar sempre.
-                Recomendo de olhos fechados.”
+                Experiência maravilhosa. Os cílios ficaram naturais do jeito que
+                eu queria e na limpeza de pele não senti dor. Pode confiar.
               </p>
-              <footer>Juliana M.</footer>
+              <footer>Dyh Fernandes · Google Local Guide</footer>
             </blockquote>
           </div>
         </div>
       </section>
 
-      <!-- ===================== FAQ ===================== -->
-      <section class="section" id="faq">
+      <!-- FAQ -->
+      <section class="section" id="faq" style="padding-top: 1rem">
         <div class="wrap">
-          <div
-            class="sec-head reveal"
-            style="text-align: center; margin-inline: auto"
-          >
+          <div class="sec-head reveal" style="text-align: center">
             <p class="eyebrow" style="display: inline-block">
               Dúvidas frequentes
             </p>
-            <h2>Antes de agendar.</h2>
+            <h2>Antes de <em>agendar</em>.</h2>
           </div>
           <div class="faq__grid">
             <div class="faq__item reveal">
@@ -1077,33 +1141,34 @@
               </button>
               <div class="faq__a">
                 <p>
-                  A maioria dos protocolos é confortável e relaxante. Qualquer
-                  sensação é sempre conversada e ajustada ao seu limite durante
-                  a sessão.
+                  A maioria é confortável e tranquila. A limpeza de pele, por
+                  exemplo, é feita sem dor com o método exclusivo da Patrícia.
+                  Qualquer sensação é ajustada no momento.
                 </p>
               </div>
             </div>
             <div class="faq__item reveal">
               <button class="faq__q" aria-expanded="false">
-                Quantas sessões eu preciso? <span class="ico">+</span>
+                Quanto tempo dura o alongamento de cílios?
+                <span class="ico">+</span>
               </button>
               <div class="faq__a">
                 <p>
-                  Depende do seu objetivo e do seu corpo. Na avaliação inicial
-                  montamos um plano personalizado com a quantidade ideal de
-                  sessões para você.
+                  Em média de três a quatro semanas, dependendo dos cuidados e
+                  da sua rotina. A manutenção regular prolonga o resultado.
                 </p>
               </div>
             </div>
             <div class="faq__item reveal">
               <button class="faq__q" aria-expanded="false">
-                Quanto tempo dura o resultado? <span class="ico">+</span>
+                Quantas sessões de limpeza de pele preciso?
+                <span class="ico">+</span>
               </button>
               <div class="faq__a">
                 <p>
-                  Os resultados são potencializados com a manutenção e hábitos
-                  saudáveis. Te orientamos sobre como prolongar e cuidar do que
-                  foi conquistado.
+                  Depende do seu tipo de pele e do objetivo. Na avaliação, a
+                  Patrícia indica o protocolo ideal e a frequência certa para
+                  você.
                 </p>
               </div>
             </div>
@@ -1114,8 +1179,8 @@
               <div class="faq__a">
                 <p>
                   Alguns procedimentos têm contraindicações específicas. Por
-                  isso toda jornada começa por uma avaliação, garantindo
-                  segurança em cada etapa.
+                  isso toda jornada começa por uma avaliação — garantindo
+                  segurança do início ao resultado.
                 </p>
               </div>
             </div>
@@ -1125,8 +1190,9 @@
               </button>
               <div class="faq__a">
                 <p>
-                  É só tocar no botão de WhatsApp ou em “Agendar avaliação”.
-                  Respondemos rapidinho e marcamos o melhor horário para você.
+                  Pelo botão de agendamento aqui no site ou pelo WhatsApp. A
+                  agenda abre com antecedência — escolha o dia e horário que for
+                  melhor para você.
                 </p>
               </div>
             </div>
@@ -1134,36 +1200,74 @@
         </div>
       </section>
 
-      <!-- ===================== CONTATO ===================== -->
-      <!-- MOCK: endereço, horários e WhatsApp reais -->
+      <!-- linha assinatura -->
+      <div class="wrap">
+        <svg
+          class="thread"
+          viewBox="0 0 1100 48"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0,22 C140,44 260,2 400,24 C540,46 660,2 800,24 C940,46 1020,8 1100,26"
+          />
+        </svg>
+      </div>
+
+      <!-- CONTATO -->
       <section class="section contact" id="contato">
         <div class="wrap contact__grid">
           <div class="reveal">
-            <p class="eyebrow">Agende sua avaliação</p>
-            <h2>Vamos cuidar de você?</h2>
+            <p class="eyebrow">Vem nos visitar</p>
+            <h2>Vamos marcar o seu <em>horário</em>?</h2>
+            <!-- DADOS REAIS (Google Maps) -->
             <ul class="contact__list">
-              <li><strong>Endereço</strong> Rua Exemplo, 123 — São Paulo/SP</li>
-              <li><strong>Horário</strong> Seg a Sáb · 9h às 19h</li>
-              <li><strong>WhatsApp</strong> (11) 9 0000-0000</li>
-              <li><strong>Instagram</strong> @belleetbellestudio</li>
+              <li>
+                <strong>Endereço</strong>
+                <span
+                  >R. Manuel França dos Santos, 231 · Jd. Sapopemba, São
+                  Paulo/SP</span
+                >
+              </li>
+              <li>
+                <strong>Horário</strong>
+                <span>Ter–Sex · 14h às 20h &nbsp;·&nbsp; Sáb · 7h às 20h</span>
+              </li>
+              <li><strong>Telefone</strong> <span>(11) 97615-6064</span></li>
+              <li>
+                <strong>Instagram</strong> <span>@belleetbellestudio</span>
+              </li>
             </ul>
-            <a
-              href="https://wa.me/5511900000000?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20no%20Belle%20et%20Belle"
-              class="btn btn--primary"
-              target="_blank"
-              rel="noopener"
-              >Chamar no WhatsApp</a
-            >
+            <div class="contact__btns">
+              <a
+                href="http://www.simplesagenda.com.br/agendamento_m.php?id=5af79de6bd8b6a2db63376e69246e719"
+                target="_blank"
+                rel="noopener"
+                class="btn btn--primary"
+                >Agendar agora</a
+              >
+              <a
+                href="https://wa.me/5511976156064?text=Oi!%20Vi%20o%20site%20e%20quero%20agendar%20um%20horário"
+                target="_blank"
+                rel="noopener"
+                class="btn btn--ghost"
+                >WhatsApp</a
+              >
+            </div>
           </div>
           <div class="contact__map reveal" aria-hidden="true"></div>
         </div>
       </section>
     </main>
 
-    <!-- ===================== RODAPÉ ===================== -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="wrap footer__inner">
-        <span class="wordmark">Belle <span class="et">et</span> Belle</span>
+        <span class="wordmark"
+          >Belle <span class="et">et</span> Belle<span class="by"
+            >by Patrícia Almeida</span
+          ></span
+        >
         <nav class="footer__social" aria-label="Redes sociais">
           <a href="#">Instagram</a>
           <a href="#">WhatsApp</a>
@@ -1171,15 +1275,15 @@
         </nav>
       </div>
       <p class="footer__credit">
-        © 2026 Belle et Belle Studio · Estética corporal
+        © 2026 Belle et Belle · Estética Facial &amp; Corporal · Patrícia
+        Almeida
       </p>
     </footer>
 
-    <!-- ===================== WHATSAPP FLUTUANTE ===================== -->
-    <!-- MOCK: trocar o número pelo real -->
+    <!-- WHATSAPP -->
     <a
       class="wa"
-      href="https://wa.me/5511900000000?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o"
+      href="https://wa.me/5511976156064?text=Oi!%20Vi%20o%20site%20e%20quero%20agendar"
       target="_blank"
       rel="noopener"
       aria-label="Falar no WhatsApp"
@@ -1195,10 +1299,8 @@
     <script>
       (function () {
         "use strict";
-
-        /* ---- Menu mobile ---- */
-        var toggle = document.getElementById("navToggle");
-        var links = document.getElementById("navLinks");
+        var toggle = document.getElementById("navToggle"),
+          links = document.getElementById("navLinks");
         if (toggle && links) {
           toggle.addEventListener("click", function () {
             var open = links.classList.toggle("open");
@@ -1213,12 +1315,9 @@
             }
           });
         }
-
-        /* ---- FAQ accordion ---- */
-        var faqItems = document.querySelectorAll(".faq__item");
-        faqItems.forEach(function (item) {
-          var q = item.querySelector(".faq__q");
-          var a = item.querySelector(".faq__a");
+        document.querySelectorAll(".faq__item").forEach(function (item) {
+          var q = item.querySelector(".faq__q"),
+            a = item.querySelector(".faq__a");
           if (!q || !a) return;
           q.addEventListener("click", function () {
             var isOpen = item.classList.toggle("open");
@@ -1226,20 +1325,18 @@
             a.style.maxHeight = isOpen ? a.scrollHeight + "px" : "0";
           });
         });
-
-        /* ---- Reveal on scroll ---- */
-        var reveals = document.querySelectorAll(".reveal");
-        if ("IntersectionObserver" in window && reveals.length) {
+        var reveals = document.querySelectorAll(".reveal, .thread");
+        if ("IntersectionObserver" in window) {
           var io = new IntersectionObserver(
             function (entries) {
-              entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("in");
-                  io.unobserve(entry.target);
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("in");
+                  io.unobserve(e.target);
                 }
               });
             },
-            { threshold: 0.15 },
+            { threshold: 0.12 },
           );
           reveals.forEach(function (el) {
             io.observe(el);
@@ -1249,66 +1346,55 @@
             el.classList.add("in");
           });
         }
-
-        /* ---- Slider antes/depois ---- */
-        var compare = document.getElementById("baCompare");
-        var before = document.getElementById("baBefore");
-        var handle = document.getElementById("baHandle");
+        var compare = document.getElementById("baCompare"),
+          before = document.getElementById("baBefore"),
+          handle = document.getElementById("baHandle");
         if (compare && before && handle) {
-          var dragging = false;
-
-          function setPos(clientX) {
-            var rect = compare.getBoundingClientRect();
-            var pct = ((clientX - rect.left) / rect.width) * 100;
-            pct = Math.max(0, Math.min(100, pct));
-            before.style.clipPath = "inset(0 " + (100 - pct) + "% 0 0)";
-            handle.style.left = pct + "%";
-            compare.setAttribute("aria-valuenow", String(Math.round(pct)));
+          var drag = false;
+          function setPos(cx) {
+            var r = compare.getBoundingClientRect();
+            var p = Math.max(0, Math.min(100, ((cx - r.left) / r.width) * 100));
+            before.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+            handle.style.left = p + "%";
+            compare.setAttribute("aria-valuenow", String(Math.round(p)));
           }
-
-          function start() {
-            dragging = true;
-          }
-          function stop() {
-            dragging = false;
-          }
-          function move(e) {
-            if (!dragging) return;
-            var x = e.touches ? e.touches[0].clientX : e.clientX;
-            setPos(x);
-          }
-
           compare.addEventListener("mousedown", function (e) {
-            start();
+            drag = true;
             setPos(e.clientX);
           });
           compare.addEventListener(
             "touchstart",
             function (e) {
-              start();
+              drag = true;
               setPos(e.touches[0].clientX);
             },
             { passive: true },
           );
-          window.addEventListener("mousemove", move);
-          window.addEventListener("touchmove", move, { passive: true });
-          window.addEventListener("mouseup", stop);
-          window.addEventListener("touchend", stop);
-
-          /* Acessível via teclado */
+          window.addEventListener("mousemove", function (e) {
+            if (drag) setPos(e.clientX);
+          });
+          window.addEventListener(
+            "touchmove",
+            function (e) {
+              if (drag) setPos(e.touches[0].clientX);
+            },
+            { passive: true },
+          );
+          window.addEventListener("mouseup", function () {
+            drag = false;
+          });
+          window.addEventListener("touchend", function () {
+            drag = false;
+          });
           compare.addEventListener("keydown", function (e) {
-            var now = Number(compare.getAttribute("aria-valuenow")) || 50;
-            if (e.key === "ArrowLeft") {
-              now -= 5;
-            } else if (e.key === "ArrowRight") {
-              now += 5;
-            } else {
-              return;
-            }
-            now = Math.max(0, Math.min(100, now));
-            before.style.clipPath = "inset(0 " + (100 - now) + "% 0 0)";
-            handle.style.left = now + "%";
-            compare.setAttribute("aria-valuenow", String(now));
+            var n = Number(compare.getAttribute("aria-valuenow")) || 50;
+            if (e.key === "ArrowLeft") n -= 5;
+            else if (e.key === "ArrowRight") n += 5;
+            else return;
+            n = Math.max(0, Math.min(100, n));
+            before.style.clipPath = "inset(0 " + (100 - n) + "% 0 0)";
+            handle.style.left = n + "%";
+            compare.setAttribute("aria-valuenow", String(n));
             e.preventDefault();
           });
         }
