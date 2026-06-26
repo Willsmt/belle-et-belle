@@ -98,5 +98,31 @@
       compare.setAttribute("aria-valuenow", String(n));
       e.preventDefault();
     });
+
+    // Galeria: miniaturas trocam o caso exibido no slider
+    var beforeImg = document.getElementById("baBeforeImg"),
+      afterImg = document.getElementById("baAfterImg"),
+      caption = document.getElementById("baCaption"),
+      thumbs = document.querySelectorAll("#baThumbs .ba__thumb");
+    if (beforeImg && afterImg && thumbs.length) {
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener("click", function () {
+          beforeImg.src = thumb.getAttribute("data-before");
+          afterImg.src = thumb.getAttribute("data-after");
+          var label = thumb.getAttribute("data-label");
+          if (caption && label) caption.textContent = label;
+          thumbs.forEach(function (t) {
+            t.classList.remove("is-active");
+            t.setAttribute("aria-selected", "false");
+          });
+          thumb.classList.add("is-active");
+          thumb.setAttribute("aria-selected", "true");
+          // volta o slider ao centro a cada novo caso
+          before.style.clipPath = "inset(0 50% 0 0)";
+          handle.style.left = "50%";
+          compare.setAttribute("aria-valuenow", "50");
+        });
+      });
+    }
   }
 })();

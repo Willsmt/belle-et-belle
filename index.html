@@ -277,27 +277,100 @@
             </p>
             <h2>Antes <em>et</em> depois.</h2>
           </div>
-          <!-- MOCK: trocar pelas fotos reais (com autorização das clientes) -->
-          <div
-            class="ba__compare"
-            id="baCompare"
-            role="slider"
-            aria-label="Comparar antes e depois"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="50"
-            tabindex="0"
-          >
-            <div class="ba__layer ba__after">depois</div>
-            <div class="ba__layer ba__before" id="baBefore">antes</div>
-            <span class="ba__tag ba__tag--before">Antes</span>
-            <span class="ba__tag ba__tag--after">Depois</span>
-            <div class="ba__handle" id="baHandle">
-              <span class="ba__knob">et</span>
+          <!--
+            MOCK: placeholders em assets/img/resultados/.
+            Para usar fotos reais: substituir os .jpg mantendo os nomes
+            (caso-0X-antes / caso-0X-depois / caso-0X-thumb) e o data-label.
+            ATENÇÃO LGPD: usar somente com autorização das clientes.
+          -->
+          <figure class="ba__stage reveal">
+            <div
+              class="ba__compare"
+              id="baCompare"
+              role="slider"
+              aria-label="Comparar antes e depois"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="50"
+              tabindex="0"
+            >
+              <div class="ba__layer ba__after">
+                <img
+                  id="baAfterImg"
+                  src="assets/img/resultados/caso-01-depois.jpg"
+                  alt="Depois — resultado ilustrativo"
+                />
+              </div>
+              <div class="ba__layer ba__before" id="baBefore">
+                <img
+                  id="baBeforeImg"
+                  src="assets/img/resultados/caso-01-antes.jpg"
+                  alt="Antes — resultado ilustrativo"
+                />
+              </div>
+              <span class="ba__tag ba__tag--before">Antes</span>
+              <span class="ba__tag ba__tag--after">Depois</span>
+              <div class="ba__handle" id="baHandle">
+                <span class="ba__knob">et</span>
+              </div>
             </div>
+            <figcaption class="ba__caption" id="baCaption">
+              Caso 01 · Limpeza de pele
+            </figcaption>
+          </figure>
+
+          <!-- miniaturas: trocam o caso exibido no slider -->
+          <div
+            class="ba__thumbs"
+            id="baThumbs"
+            role="tablist"
+            aria-label="Escolher resultado"
+          >
+            <button
+              class="ba__thumb is-active"
+              role="tab"
+              aria-selected="true"
+              data-before="assets/img/resultados/caso-01-antes.jpg"
+              data-after="assets/img/resultados/caso-01-depois.jpg"
+              data-label="Caso 01 · Limpeza de pele"
+            >
+              <img src="assets/img/resultados/caso-01-thumb.jpg" alt="Caso 01 · Limpeza de pele" />
+            </button>
+            <button
+              class="ba__thumb"
+              role="tab"
+              aria-selected="false"
+              data-before="assets/img/resultados/caso-02-antes.jpg"
+              data-after="assets/img/resultados/caso-02-depois.jpg"
+              data-label="Caso 02 · Alongamento de cílios"
+            >
+              <img src="assets/img/resultados/caso-02-thumb.jpg" alt="Caso 02 · Alongamento de cílios" />
+            </button>
+            <button
+              class="ba__thumb"
+              role="tab"
+              aria-selected="false"
+              data-before="assets/img/resultados/caso-03-antes.jpg"
+              data-after="assets/img/resultados/caso-03-depois.jpg"
+              data-label="Caso 03 · Dermaplaning"
+            >
+              <img src="assets/img/resultados/caso-03-thumb.jpg" alt="Caso 03 · Dermaplaning" />
+            </button>
+            <button
+              class="ba__thumb"
+              role="tab"
+              aria-selected="false"
+              data-before="assets/img/resultados/caso-04-antes.jpg"
+              data-after="assets/img/resultados/caso-04-depois.jpg"
+              data-label="Caso 04 · Protocolo facial"
+            >
+              <img src="assets/img/resultados/caso-04-thumb.jpg" alt="Caso 04 · Protocolo facial" />
+            </button>
           </div>
+
           <p class="ba__note">
-            Arraste para comparar · imagens ilustrativas · fotos reais em breve
+            Arraste para comparar · toque nas miniaturas para ver outros casos ·
+            imagens ilustrativas, fotos reais em breve
           </p>
         </div>
       </section>
