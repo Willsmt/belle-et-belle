@@ -261,5 +261,27 @@
       if (e.target.closest(".quote"))
         window.open(googleReviews, "_blank", "noopener");
     });
+
+    // botão pausar/continuar (acessível por teclado) + respeita reduzir-animações
+    var testi = testiTrack.closest(".testi"),
+      toggle = document.getElementById("testiToggle");
+    if (testi && toggle) {
+      var lbl = toggle.querySelector(".testi__toggle-label"),
+        ico = toggle.querySelector(".ico");
+      function setPaused(paused) {
+        testi.classList.toggle("is-paused", paused);
+        toggle.setAttribute("aria-pressed", String(paused));
+        if (lbl) lbl.textContent = paused ? "Continuar" : "Pausar";
+        if (ico) ico.textContent = paused ? "▶" : "⏸";
+      }
+      // se o usuário pediu menos animação, começa pausado
+      var reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      setPaused(reduce);
+      toggle.addEventListener("click", function () {
+        setPaused(!testi.classList.contains("is-paused"));
+      });
+    }
   }
 })();

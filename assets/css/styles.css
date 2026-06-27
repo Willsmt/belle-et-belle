@@ -830,6 +830,32 @@ button:focus-visible {
   font-size: 0.92rem;
   color: var(--ink-soft);
 }
+.testi__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 1.4rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--white);
+  border: 1px solid rgba(26, 21, 24, 0.16);
+  border-radius: 2rem;
+  padding: 0.55em 1.1em;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.testi__toggle:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+.testi__toggle .ico {
+  font-size: 0.9em;
+  line-height: 1;
+}
 .testi__lead strong {
   color: var(--pink);
   font-weight: 600;
@@ -853,7 +879,8 @@ button:focus-visible {
   align-items: stretch;
   animation: testiScroll var(--testi-duration) linear infinite;
 }
-.testi:hover .testi__track {
+.testi:hover .testi__track,
+.testi.is-paused .testi__track {
   animation-play-state: paused;
 }
 @keyframes testiScroll {
@@ -1206,9 +1233,13 @@ button:focus-visible {
   .thread path {
     stroke-dashoffset: 0;
   }
-  /* o carrossel de avaliações é um recurso pedido: continua rodando
-     mesmo com "reduzir animações" (pausa ao passar o mouse) */
+  /* o carrossel pode rodar, mas inicia PAUSADO (a preferência do usuário é
+     respeitada); o botão de play/pausa permite ligar manualmente */
   .testi__track {
     animation: testiScroll var(--testi-duration) linear infinite !important;
+  }
+  .testi:hover .testi__track,
+  .testi.is-paused .testi__track {
+    animation-play-state: paused !important;
   }
 }
