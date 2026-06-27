@@ -162,6 +162,35 @@
     hideAll();
   }
 
+  // Procedimentos: menu por categoria filtra os cards (1ª categoria aberta)
+  var procMenu = document.getElementById("procMenu"),
+    procItems = document.querySelectorAll("#procGrid .proc__item");
+  if (procMenu && procItems.length) {
+    var procTabs = procMenu.querySelectorAll(".proc__tab");
+    function showProc(cat) {
+      procItems.forEach(function (item) {
+        item.classList.toggle(
+          "is-hidden",
+          item.getAttribute("data-cat") !== cat
+        );
+      });
+    }
+    procTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        procTabs.forEach(function (t) {
+          t.classList.remove("is-active");
+          t.setAttribute("aria-selected", "false");
+        });
+        tab.classList.add("is-active");
+        tab.setAttribute("aria-selected", "true");
+        showProc(tab.getAttribute("data-cat"));
+      });
+    });
+    var procInit =
+      procMenu.querySelector(".proc__tab.is-active") || procTabs[0];
+    if (procInit) showProc(procInit.getAttribute("data-cat"));
+  }
+
   // Lightbox: clique numa foto da galeria abre em tela cheia
   var lightbox = document.getElementById("lightbox"),
     lightboxImg = document.getElementById("lightboxImg"),

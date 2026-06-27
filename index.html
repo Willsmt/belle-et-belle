@@ -295,57 +295,159 @@
             <p class="eyebrow">Tratamentos</p>
             <h2>O que cuidamos <em>por você</em>.</h2>
           </div>
-          <!-- MOCK: confirmar lista completa com a Patrícia -->
-          <div class="services__grid">
-            <article class="card reveal">
+          <!-- menu por categoria: clique e veja os procedimentos do grupo -->
+          <div
+            class="proc__menu reveal"
+            id="procMenu"
+            role="tablist"
+            aria-label="Categorias de procedimentos"
+          >
+            <button class="proc__tab is-active" role="tab" aria-selected="true" data-cat="cilios">
+              Cílios <span>7</span>
+            </button>
+            <button class="proc__tab" role="tab" aria-selected="false" data-cat="sobrancelha">
+              Sobrancelha <span>2</span>
+            </button>
+            <button class="proc__tab" role="tab" aria-selected="false" data-cat="pele">
+              Pele &amp; Rosto <span>5</span>
+            </button>
+            <button class="proc__tab" role="tab" aria-selected="false" data-cat="corporal">
+              Corporal <span>3</span>
+            </button>
+            <button class="proc__tab" role="tab" aria-selected="false" data-cat="parceiros">
+              Parceiros <span>1</span>
+            </button>
+          </div>
+
+          <div class="proc__grid" id="procGrid">
+            <!-- CÍLIOS -->
+            <article class="card proc__item" data-cat="cilios">
               <div class="card__mark"></div>
-              <h3>Limpeza de Pele</h3>
-              <p>
-                Método exclusivo que trata a pele a fundo sem dor, devolvendo
-                viço e renovação ao rosto.
-              </p>
+              <h3>Cílios Volume Brasileiro</h3>
+              <span class="card__meta">2h</span>
+              <p>Efeito natural e leve, fio a fio, realçando o olhar com delicadeza.</p>
             </article>
-            <article class="card reveal">
+            <article class="card proc__item" data-cat="cilios">
               <div class="card__mark"></div>
-              <h3>Alongamento de Cílios</h3>
-              <p>
-                Cílios naturais do seu jeito — volume, curvatura e um resultado
-                que dura semanas.
-              </p>
+              <h3>Cílios Volumes</h3>
+              <span class="card__meta">1h 50min</span>
+              <p>Mais densidade e profundidade no olhar, com volume sob medida pra você.</p>
             </article>
-            <article class="card reveal">
+            <article class="card proc__item" data-cat="cilios">
               <div class="card__mark"></div>
-              <h3>Massagem 360°</h3>
-              <p>
-                Relaxamento profundo que cuida do corpo inteiro e alivia tensões
-                de verdade.
-              </p>
+              <h3>Volume Russo</h3>
+              <span class="card__meta">1h</span>
+              <p>Leques ultrafinos para um volume marcante e sofisticado.</p>
             </article>
-            <article class="card reveal">
+            <article class="card proc__item" data-cat="cilios">
               <div class="card__mark"></div>
-              <h3>Hydra Gloss</h3>
-              <p>
-                Hidratação intensa para os lábios, com efeito glossy delicado e
-                duradouro.
-              </p>
+              <h3>Mega Volume</h3>
+              <span class="card__meta">2h 20min</span>
+              <p>O máximo de volume e impacto, para um olhar de tirar o fôlego.</p>
             </article>
-            <article class="card reveal">
+            <article class="card proc__item" data-cat="cilios">
               <div class="card__mark"></div>
-              <h3>Dermaplaning</h3>
-              <p>
-                Remove penugem e células mortas. Pele lisa, luminosa e pronta
-                para receber ativos.
-              </p>
+              <h3>Cílios Brasileiro · Manutenção</h3>
+              <span class="card__meta">1h 35min</span>
+              <p>Reposição dos fios para manter o seu brasileiro sempre bonito e preenchido.</p>
             </article>
-            <article class="card reveal">
+            <article class="card proc__item" data-cat="cilios">
               <div class="card__mark"></div>
-              <h3>Estética Corporal</h3>
-              <p>
-                Protocolos para o corpo com foco em resultado real, bem-estar e
-                autoestima.
-              </p>
+              <h3>Lash Lifting</h3>
+              <span class="card__meta">1h</span>
+              <p>Curvatura natural dos seus próprios cílios, com efeito alongado por semanas.</p>
+            </article>
+            <article class="card proc__item" data-cat="cilios">
+              <div class="card__mark"></div>
+              <h3>Modelo de Cílios</h3>
+              <span class="card__meta">3h</span>
+              <p>Vaga de modelo: você faz o procedimento com valor especial servindo de prática.</p>
+            </article>
+
+            <!-- SOBRANCELHA -->
+            <article class="card proc__item" data-cat="sobrancelha">
+              <div class="card__mark"></div>
+              <h3>Brow Lamination</h3>
+              <span class="card__meta">1h</span>
+              <p>Alinha e fixa os fios para sobrancelhas cheias, penteadas e bem desenhadas.</p>
+            </article>
+            <article class="card proc__item" data-cat="sobrancelha">
+              <div class="card__mark"></div>
+              <h3>Sobrancelha com Henna</h3>
+              <span class="card__meta">1h</span>
+              <p>Design com henna que preenche falhas e realça o formato do rosto.</p>
+            </article>
+
+            <!-- PELE & ROSTO -->
+            <article class="card proc__item" data-cat="pele">
+              <div class="card__mark"></div>
+              <h3>Limpeza de Pele Simples</h3>
+              <span class="card__meta">1h</span>
+              <p>Higienização profunda que desobstrui os poros e renova a pele — sem dor.</p>
+            </article>
+            <article class="card proc__item" data-cat="pele">
+              <div class="card__mark"></div>
+              <h3>Limpeza de Pele Premium</h3>
+              <span class="card__meta">2h</span>
+              <p>Protocolo completo com ativos e cuidado extra para um viço ainda maior.</p>
+            </article>
+            <article class="card proc__item" data-cat="pele">
+              <div class="card__mark"></div>
+              <h3>Microagulhamento</h3>
+              <span class="card__meta">1h</span>
+              <p>Estimula colágeno para tratar marcas, poros e textura, renovando a pele.</p>
+            </article>
+            <article class="card proc__item" data-cat="pele">
+              <div class="card__mark"></div>
+              <h3>Skinbooster</h3>
+              <span class="card__meta">50min</span>
+              <p>Hidratação profunda que devolve viço, firmeza e brilho saudável ao rosto.</p>
+            </article>
+            <article class="card proc__item" data-cat="pele">
+              <div class="card__mark"></div>
+              <h3>Hidragloss</h3>
+              <span class="card__meta">1h</span>
+              <p>Hidratação intensa dos lábios com efeito glossy delicado e duradouro.</p>
+            </article>
+
+            <!-- CORPORAL -->
+            <article class="card proc__item" data-cat="corporal">
+              <div class="card__mark"></div>
+              <h3>Corpo dos Sonhos 2026</h3>
+              <span class="card__meta">1h 05min</span>
+              <p>Protocolo corporal completo, focado em medidas, firmeza e autoestima.</p>
+            </article>
+            <article class="card proc__item" data-cat="corporal">
+              <div class="card__mark"></div>
+              <h3>Drenagem</h3>
+              <span class="card__meta">50min</span>
+              <p>Massagem que reduz inchaço, ativa a circulação e dá leveza ao corpo.</p>
+            </article>
+            <article class="card proc__item" data-cat="corporal">
+              <div class="card__mark"></div>
+              <h3>Drenagem · Pacote</h3>
+              <span class="card__meta">Sessões</span>
+              <p>Sequência de sessões de drenagem para resultados que se mantêm.</p>
+            </article>
+
+            <!-- PARCEIROS -->
+            <article class="card proc__item" data-cat="parceiros">
+              <div class="card__mark"></div>
+              <h3>Parceiros</h3>
+              <span class="card__meta">Sob consulta</span>
+              <p>Procedimentos realizados por profissionais parceiras do studio.</p>
             </article>
           </div>
+
+          <p class="proc__note">
+            Valores e horários ficam no agendamento online.
+            <a
+              href="http://www.simplesagenda.com.br/agendamento_m.php?id=5af79de6bd8b6a2db63376e69246e719"
+              target="_blank"
+              rel="noopener"
+              >Ver valores e agendar →</a
+            >
+          </p>
         </div>
       </section>
 

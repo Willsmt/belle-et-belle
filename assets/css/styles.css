@@ -378,6 +378,91 @@ button:focus-visible {
   font-weight: 300;
   color: var(--ink-soft);
 }
+.card__meta {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  margin-bottom: 0.8rem;
+}
+
+/* PROCEDIMENTOS (menu por categoria) */
+.proc__menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 2.6rem;
+}
+.proc__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid rgba(26, 21, 24, 0.14);
+  border-radius: 2rem;
+  padding: 0.7em 1.3em;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.proc__tab span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5em;
+  height: 1.5em;
+  padding: 0 0.35em;
+  font-size: 0.72rem;
+  border-radius: 1em;
+  background: var(--pink-soft);
+  color: var(--pink-deep);
+  transition: all 0.3s var(--ease);
+}
+.proc__tab:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+.proc__tab.is-active {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: var(--white);
+}
+.proc__tab.is-active span {
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--white);
+}
+.proc__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+.proc__item {
+  animation: galleryIn 0.5s var(--ease) both;
+}
+.proc__item.is-hidden {
+  display: none;
+}
+.proc__note {
+  text-align: center;
+  margin-top: 2.6rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.proc__note a {
+  color: var(--pink);
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease);
+}
+.proc__note a:hover {
+  border-color: var(--pink);
+}
 
 /* ANTES/DEPOIS */
 .ba__head {
@@ -1018,7 +1103,7 @@ button:focus-visible {
 /* RESPONSIVO */
 @media (max-width: 1024px) {
   .services__grid,
-  .testi__grid {
+  .proc__grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .gallery__grid {
@@ -1070,7 +1155,7 @@ button:focus-visible {
     padding-top: 1.4rem;
   }
   .services__grid,
-  .testi__grid {
+  .proc__grid {
     grid-template-columns: 1fr;
   }
   .gallery__grid {
