@@ -455,7 +455,7 @@ button:focus-visible {
   color: var(--ink-soft);
 }
 .proc__note a {
-  color: var(--pink);
+  color: var(--pink-deep);
   font-weight: 500;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s var(--ease);
@@ -921,7 +921,7 @@ button:focus-visible {
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--pink);
+  color: var(--pink-deep);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s var(--ease);
 }
@@ -1113,7 +1113,7 @@ button:focus-visible {
   letter-spacing: 0.06em;
   text-align: center;
   margin-top: 1.6rem;
-  opacity: 0.45;
+  color: rgba(250, 246, 243, 0.65);
 }
 
 /* WHATSAPP */
@@ -1125,7 +1125,7 @@ button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.55em;
-  background: #25d366;
+  background: #0a7d43;
   color: #fff;
   padding: 0.8em 1.3em;
   border-radius: 50px;
