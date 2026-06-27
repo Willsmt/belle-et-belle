@@ -212,7 +212,7 @@
     }
     galleryImgs.forEach(function (img) {
       img.addEventListener("click", function () {
-        openLightbox(img.src, img.alt);
+        openLightbox(img.dataset.full || img.src, img.alt);
       });
     });
     lightbox.addEventListener("click", function (e) {
