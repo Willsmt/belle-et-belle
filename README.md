@@ -127,9 +127,12 @@ conectar o repositório e fazer deploy, sem configuração extra.
 
 ## ✅ Pendências
 
-- [ ] **Trocar `https://belleetbelle.com.br` pelo domínio real** (em `index.html`:
-      `canonical`, `og:url`, `og:image`, JSON-LD) ao registrar no Registro.br
+- [ ] **Trocar `https://belleetbelle.com.br` pelo domínio real** em `index.html`
+      (`canonical`, `og:url`, `og:image`, JSON-LD), `sitemap.xml` e `robots.txt`
 - [ ] Domínio próprio (.com.br via Registro.br → apontar para a Vercel)
+- [ ] **Google Search Console**: verificar o site e enviar o `sitemap.xml`
+- [ ] **Google Meu Negócio**: manter categorias, fotos e avaliações (maior fator
+      de ranqueamento local — trabalha junto com o site)
 - [ ] Google Analytics (precisa do ID de medição `G-XXXXXXXXXX`)
 - [ ] Regerar `og-image.png` com o logo oficial
 - [ ] Confirmar legendas/procedimentos dos resultados com a Patrícia
