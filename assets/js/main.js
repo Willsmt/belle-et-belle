@@ -16,10 +16,15 @@
       }
     });
   }
-  document.querySelectorAll(".faq__item").forEach(function (item) {
+  document.querySelectorAll(".faq__item").forEach(function (item, i) {
     var q = item.querySelector(".faq__q"),
       a = item.querySelector(".faq__a");
     if (!q || !a) return;
+    // associa pergunta e resposta para leitores de tela
+    var aid = "faq-a-" + (i + 1);
+    a.id = aid;
+    a.setAttribute("role", "region");
+    q.setAttribute("aria-controls", aid);
     q.addEventListener("click", function () {
       var isOpen = item.classList.toggle("open");
       q.setAttribute("aria-expanded", String(isOpen));
@@ -197,22 +202,37 @@
     lightboxClose = document.getElementById("lightboxClose"),
     galleryImgs = document.querySelectorAll("#galleryGrid .gallery__item img");
   if (lightbox && lightboxImg && galleryImgs.length) {
+    var lastFocused = null;
     function openLightbox(src, alt) {
+      lastFocused = document.activeElement;
       lightboxImg.src = src;
       lightboxImg.alt = alt || "";
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      if (lightboxClose) lightboxClose.focus();
     }
     function closeLightbox() {
       lightbox.classList.remove("is-open");
       lightbox.setAttribute("aria-hidden", "true");
       lightboxImg.src = "";
       document.body.style.overflow = "";
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
     }
     galleryImgs.forEach(function (img) {
-      img.addEventListener("click", function () {
+      // torna a foto acionável por teclado (Enter/Espaço), não só por clique
+      img.tabIndex = 0;
+      img.setAttribute("role", "button");
+      img.setAttribute("aria-label", "Ampliar foto: " + (img.alt || "resultado"));
+      function open() {
         openLightbox(img.dataset.full || img.src, img.alt);
+      }
+      img.addEventListener("click", open);
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open();
+        }
       });
     });
     lightbox.addEventListener("click", function (e) {
