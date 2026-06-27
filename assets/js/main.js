@@ -125,4 +125,64 @@
       });
     }
   }
+
+  // Galeria por sessão: menu filtra as fotos por procedimento
+  var galleryMenu = document.getElementById("galleryMenu"),
+    galleryItems = document.querySelectorAll("#galleryGrid .gallery__item");
+  if (galleryMenu && galleryItems.length) {
+    var tabs = galleryMenu.querySelectorAll(".gallery__tab");
+    function filterGallery(cat) {
+      galleryItems.forEach(function (item) {
+        item.classList.toggle("is-hidden", item.getAttribute("data-cat") !== cat);
+      });
+    }
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        tabs.forEach(function (t) {
+          t.classList.remove("is-active");
+          t.setAttribute("aria-selected", "false");
+        });
+        tab.classList.add("is-active");
+        tab.setAttribute("aria-selected", "true");
+        filterGallery(tab.getAttribute("data-cat"));
+      });
+    });
+    // estado inicial: mostra só a sessão marcada como ativa
+    var initial = galleryMenu.querySelector(".gallery__tab.is-active");
+    if (initial) filterGallery(initial.getAttribute("data-cat"));
+  }
+
+  // Lightbox: clique numa foto da galeria abre em tela cheia
+  var lightbox = document.getElementById("lightbox"),
+    lightboxImg = document.getElementById("lightboxImg"),
+    lightboxClose = document.getElementById("lightboxClose"),
+    galleryImgs = document.querySelectorAll("#galleryGrid .gallery__item img");
+  if (lightbox && lightboxImg && galleryImgs.length) {
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+    galleryImgs.forEach(function (img) {
+      img.addEventListener("click", function () {
+        openLightbox(img.src, img.alt);
+      });
+    });
+    lightbox.addEventListener("click", function (e) {
+      if (e.target !== lightboxImg) closeLightbox();
+    });
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lightbox.classList.contains("is-open"))
+        closeLightbox();
+    });
+  }
 })();

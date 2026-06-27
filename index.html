@@ -277,12 +277,6 @@
             </p>
             <h2>Antes <em>et</em> depois.</h2>
           </div>
-          <!--
-            MOCK: placeholders em assets/img/resultados/.
-            Para usar fotos reais: substituir os .jpg mantendo os nomes
-            (caso-0X-antes / caso-0X-depois / caso-0X-thumb) e o data-label.
-            ATENÇÃO LGPD: usar somente com autorização das clientes.
-          -->
           <figure class="ba__stage reveal">
             <div
               class="ba__compare"
@@ -297,15 +291,15 @@
               <div class="ba__layer ba__after">
                 <img
                   id="baAfterImg"
-                  src="assets/img/resultados/caso-01-depois.jpg"
-                  alt="Depois — resultado ilustrativo"
+                  src="assets/img/resultados/caso-01-depois.jpeg"
+                  alt="Depois — resultado real do atendimento"
                 />
               </div>
               <div class="ba__layer ba__before" id="baBefore">
                 <img
                   id="baBeforeImg"
-                  src="assets/img/resultados/caso-01-antes.jpg"
-                  alt="Antes — resultado ilustrativo"
+                  src="assets/img/resultados/caso-01-antes.jpeg"
+                  alt="Antes — início do atendimento"
                 />
               </div>
               <span class="ba__tag ba__tag--before">Antes</span>
@@ -315,7 +309,7 @@
               </div>
             </div>
             <figcaption class="ba__caption" id="baCaption">
-              Caso 01 · Limpeza de pele
+              Caso 01 · Massagem modeladora
             </figcaption>
           </figure>
 
@@ -330,55 +324,186 @@
               class="ba__thumb is-active"
               role="tab"
               aria-selected="true"
-              data-before="assets/img/resultados/caso-01-antes.jpg"
-              data-after="assets/img/resultados/caso-01-depois.jpg"
-              data-label="Caso 01 · Limpeza de pele"
+              data-before="assets/img/resultados/caso-01-antes.jpeg"
+              data-after="assets/img/resultados/caso-01-depois.jpeg"
+              data-label="Caso 01 · Massagem modeladora"
             >
-              <img src="assets/img/resultados/caso-01-thumb.jpg" alt="Caso 01 · Limpeza de pele" />
+              <img src="assets/img/resultados/caso-01-depois.jpeg" alt="Caso 01 · Massagem modeladora" />
             </button>
             <button
               class="ba__thumb"
               role="tab"
               aria-selected="false"
-              data-before="assets/img/resultados/caso-02-antes.jpg"
-              data-after="assets/img/resultados/caso-02-depois.jpg"
-              data-label="Caso 02 · Alongamento de cílios"
+              data-before="assets/img/resultados/caso-02-antes.jpeg"
+              data-after="assets/img/resultados/caso-02-depois.jpeg"
+              data-label="Caso 02 · Drenagem linfática"
             >
-              <img src="assets/img/resultados/caso-02-thumb.jpg" alt="Caso 02 · Alongamento de cílios" />
+              <img src="assets/img/resultados/caso-02-depois.jpeg" alt="Caso 02 · Drenagem linfática" />
             </button>
             <button
               class="ba__thumb"
               role="tab"
               aria-selected="false"
-              data-before="assets/img/resultados/caso-03-antes.jpg"
-              data-after="assets/img/resultados/caso-03-depois.jpg"
-              data-label="Caso 03 · Dermaplaning"
+              data-before="assets/img/resultados/caso-03-antes.jpeg"
+              data-after="assets/img/resultados/caso-03-depois.jpeg"
+              data-label="Caso 03 · Limpeza de pele"
             >
-              <img src="assets/img/resultados/caso-03-thumb.jpg" alt="Caso 03 · Dermaplaning" />
+              <img src="assets/img/resultados/caso-03-depois.jpeg" alt="Caso 03 · Limpeza de pele" />
             </button>
             <button
               class="ba__thumb"
               role="tab"
               aria-selected="false"
-              data-before="assets/img/resultados/caso-04-antes.jpg"
-              data-after="assets/img/resultados/caso-04-depois.jpg"
-              data-label="Caso 04 · Protocolo facial"
+              data-before="assets/img/resultados/caso-04-antes.jpeg"
+              data-after="assets/img/resultados/caso-04-depois.jpeg"
+              data-label="Caso 04 · Design de sobrancelha"
             >
-              <img src="assets/img/resultados/caso-04-thumb.jpg" alt="Caso 04 · Protocolo facial" />
+              <img src="assets/img/resultados/caso-04-depois.jpeg" alt="Caso 04 · Design de sobrancelha" />
+            </button>
+            <button
+              class="ba__thumb"
+              role="tab"
+              aria-selected="false"
+              data-before="assets/img/resultados/caso-05-antes.jpeg"
+              data-after="assets/img/resultados/caso-05-depois.jpeg"
+              data-label="Caso 05 · Extensão de cílios"
+            >
+              <img src="assets/img/resultados/caso-05-depois.jpeg" alt="Caso 05 · Extensão de cílios" />
+            </button>
+            <button
+              class="ba__thumb"
+              role="tab"
+              aria-selected="false"
+              data-before="assets/img/resultados/caso-06-antes.jpeg"
+              data-after="assets/img/resultados/caso-06-depois.jpeg"
+              data-label="Caso 06 · Massagem modeladora"
+            >
+              <img src="assets/img/resultados/caso-06-depois.jpeg" alt="Caso 06 · Massagem modeladora" />
+            </button>
+            <button
+              class="ba__thumb"
+              role="tab"
+              aria-selected="false"
+              data-before="assets/img/resultados/caso-07-antes.jpeg"
+              data-after="assets/img/resultados/caso-07-depois.jpeg"
+              data-label="Caso 07 · Lash lifting"
+            >
+              <img src="assets/img/resultados/caso-07-depois.jpeg" alt="Caso 07 · Lash lifting" />
             </button>
           </div>
 
           <p class="ba__note">
             Arraste para comparar · toque nas miniaturas para ver outros casos ·
-            imagens ilustrativas, fotos reais em breve
+            fotos reais, publicadas com autorização das clientes
           </p>
+
+          <!-- galeria por sessão: clique no procedimento e veja os antes/depois -->
+          <div class="gallery">
+            <p class="gallery__lead reveal">
+              Escolha um procedimento para ver os resultados:
+            </p>
+
+            <div class="gallery__menu reveal" id="galleryMenu" role="tablist">
+              <button class="gallery__tab is-active" role="tab" aria-selected="true" data-cat="corpo">
+                Redução de medidas <span>7</span>
+              </button>
+              <button class="gallery__tab" role="tab" aria-selected="false" data-cat="gluteo">
+                Glúteo <span>3</span>
+              </button>
+              <button class="gallery__tab" role="tab" aria-selected="false" data-cat="limpeza">
+                Limpeza de pele <span>1</span>
+              </button>
+              <button class="gallery__tab" role="tab" aria-selected="false" data-cat="sobrancelha">
+                Design de sobrancelha <span>1</span>
+              </button>
+              <button class="gallery__tab" role="tab" aria-selected="false" data-cat="papada">
+                Papada <span>1</span>
+              </button>
+              <button class="gallery__tab" role="tab" aria-selected="false" data-cat="labial">
+                Micropigmentação labial <span>1</span>
+              </button>
+            </div>
+
+            <div class="gallery__grid" id="galleryGrid">
+              <figure class="gallery__item" data-cat="corpo">
+                <img src="assets/img/resultados/caso-08.jpeg" alt="Antes e depois de redução de medidas no abdômen" loading="lazy" />
+                <figcaption>Redução de medidas</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="corpo">
+                <img src="assets/img/resultados/caso-09.jpeg" alt="Antes e depois de redução de medidas no abdômen" loading="lazy" />
+                <figcaption>Redução de medidas</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="corpo">
+                <img src="assets/img/resultados/caso-10.jpeg" alt="Antes e depois de redução de medidas no abdômen" loading="lazy" />
+                <figcaption>Redução de medidas</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="corpo">
+                <img src="assets/img/resultados/caso-11.jpeg" alt="Antes e depois de massagem modeladora" loading="lazy" />
+                <figcaption>Massagem modeladora</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="corpo">
+                <img src="assets/img/resultados/caso-12.jpeg" alt="Antes e depois de redução de medidas no abdômen" loading="lazy" />
+                <figcaption>Redução de medidas</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="corpo">
+                <img src="assets/img/resultados/caso-13.jpeg" alt="Antes e depois de redução de medidas no abdômen" loading="lazy" />
+                <figcaption>Redução de medidas</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="corpo">
+                <img src="assets/img/resultados/caso-14.jpeg" alt="Antes e depois de massagem modeladora" loading="lazy" />
+                <figcaption>Massagem modeladora</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="gluteo">
+                <img src="assets/img/resultados/caso-15.jpeg" alt="Antes e depois de lipo enzimática no glúteo" loading="lazy" />
+                <figcaption>Lipo enzimática</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="gluteo">
+                <img src="assets/img/resultados/caso-16.jpeg" alt="Antes e depois de massagem modeladora no glúteo" loading="lazy" />
+                <figcaption>Massagem modeladora</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="gluteo">
+                <img src="assets/img/resultados/caso-17.jpeg" alt="Antes e depois de massagem modeladora no glúteo" loading="lazy" />
+                <figcaption>Massagem modeladora</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="limpeza">
+                <img src="assets/img/resultados/caso-18.jpeg" alt="Antes e depois de limpeza de pele" loading="lazy" />
+                <figcaption>Limpeza de pele</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="sobrancelha">
+                <img src="assets/img/resultados/caso-19.jpeg" alt="Antes e depois de design de sobrancelha" loading="lazy" />
+                <figcaption>Design de sobrancelha</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="papada">
+                <img src="assets/img/resultados/caso-20.jpeg" alt="Antes e depois de tratamento de papada" loading="lazy" />
+                <figcaption>Tratamento de papada</figcaption>
+              </figure>
+              <figure class="gallery__item" data-cat="labial">
+                <img src="assets/img/resultados/caso-21.jpeg" alt="Antes e depois de micropigmentação labial" loading="lazy" />
+                <figcaption>Micropigmentação labial</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- lightbox -->
+        <div class="lightbox" id="lightbox" aria-hidden="true">
+          <button class="lightbox__close" id="lightboxClose" aria-label="Fechar">&times;</button>
+          <img class="lightbox__img" id="lightboxImg" src="" alt="" />
         </div>
       </section>
 
       <!-- SOBRE -->
       <section class="section about" id="sobre">
         <div class="wrap about__grid">
-          <div class="about__frame reveal"></div>
+          <div class="about__frame reveal">
+            <img
+              src="assets/img/Patricia_almeida.jpeg"
+              alt="Patrícia Almeida, especialista em estética facial e corporal"
+              width="640"
+              height="800"
+              loading="lazy"
+            />
+          </div>
           <div class="reveal">
             <p class="eyebrow">Quem cuida de você</p>
             <h2>O talento é fazer <em>você brilhar</em>.</h2>
