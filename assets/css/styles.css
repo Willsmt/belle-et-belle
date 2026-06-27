@@ -57,27 +57,6 @@ h3 {
   color: var(--mauve);
 }
 
-.wordmark {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  letter-spacing: 0.04em;
-}
-.wordmark .et {
-  color: var(--pink);
-  font-style: italic;
-  padding: 0 0.06em;
-}
-.wordmark .by {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.5em;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--mauve);
-  margin-top: 0.2em;
-  line-height: 1;
-}
 
 .wrap {
   max-width: var(--maxw);
@@ -86,6 +65,10 @@ h3 {
 }
 .section {
   padding-block: clamp(4.5rem, 9vw, 8.5rem);
+}
+/* seção logo após um divisor: menos respiro no topo */
+.section--tight {
+  padding-top: 1rem;
 }
 
 .btn {
@@ -119,14 +102,6 @@ h3 {
 .btn--outline:hover {
   background: var(--ink);
   color: var(--paper);
-}
-.btn--light {
-  background: var(--paper);
-  color: var(--ink);
-}
-.btn--light:hover {
-  background: var(--pink);
-  color: var(--white);
 }
 .btn--ghost {
   background: transparent;
@@ -333,6 +308,14 @@ button:focus-visible {
 .sec-head {
   margin-bottom: 3.4rem;
 }
+/* cabeçalho de seção centralizado (o eyebrow vira pílula central) */
+.sec-head--center {
+  text-align: center;
+}
+.sec-head--center .eyebrow,
+.ba__head .eyebrow {
+  display: inline-block;
+}
 .sec-head h2 {
   font-size: clamp(2.1rem, 4.6vw, 3.4rem);
   margin-top: 0.8rem;
@@ -342,12 +325,7 @@ button:focus-visible {
   color: var(--pink);
 }
 
-/* SERVIÇOS */
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
-}
+/* SERVIÇOS / PROCEDIMENTOS */
 .card {
   background: var(--white);
   border: 1px solid rgba(26, 21, 24, 0.08);
@@ -913,6 +891,9 @@ button:focus-visible {
   transform: translateY(-3px);
   box-shadow: 0 20px 40px -28px rgba(216, 30, 120, 0.4);
 }
+.testi__cta-wrap {
+  text-align: center;
+}
 .testi__cta {
   display: inline-flex;
   align-items: center;
@@ -1060,17 +1041,6 @@ button:focus-visible {
   border: 0;
   display: block;
 }
-.contact__map--placeholder::after {
-  content: "mapa · Google Maps";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 0.74rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(250, 246, 243, 0.4);
-}
 .contact__btns {
   display: flex;
   gap: 1rem;
@@ -1091,9 +1061,6 @@ button:focus-visible {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-}
-.footer .wordmark {
-  color: var(--paper);
 }
 .footer__logo svg {
   height: 54px;
@@ -1145,7 +1112,6 @@ button:focus-visible {
 
 /* RESPONSIVO */
 @media (max-width: 1024px) {
-  .services__grid,
   .proc__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1197,7 +1163,6 @@ button:focus-visible {
     border-top: 1px solid rgba(26, 21, 24, 0.1);
     padding-top: 1.4rem;
   }
-  .services__grid,
   .proc__grid {
     grid-template-columns: 1fr;
   }
