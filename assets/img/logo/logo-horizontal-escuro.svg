@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 130" width="540" height="130" role="img" aria-label="Belle et Belle by Patrícia Almeida"><title>Belle et Belle by Patrícia Almeida</title>
+<g transform="translate(8,5)">
+<circle cx="60" cy="60" r="54" fill="none" stroke="#E7C9D6" stroke-width="1" opacity="0.5"/>
+<path d="M40,78 C30,66 32,46 46,40 C58,35 64,44 60,54 C57,62 64,66 70,60 C77,53 74,40 64,36" fill="none" stroke="#FF4D9A" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M80,42 C90,54 88,74 74,80 C62,85 56,76 60,66 C63,58 56,54 50,60 C43,67 46,80 56,84" fill="none" stroke="#FAF6F3" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="60" cy="60" r="2.4" fill="#FF4D9A"/></g>
+<text x="146" y="62" font-family="Marcellus, Georgia, serif" font-size="40" letter-spacing="1.5" fill="#FAF6F3">Belle <tspan font-style="italic" fill="#FF4D9A">et</tspan> Belle</text>
+<line x1="148" y1="82" x2="188" y2="82" stroke="#FF4D9A" stroke-width="1"/>
+<text x="198" y="87" font-family="'Hanken Grotesk', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="3.5" fill="#B89AA6">BY PATRÍCIA ALMEIDA</text></svg>

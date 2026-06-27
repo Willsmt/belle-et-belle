@@ -1,0 +1,39 @@
+═══════════════════════════════════════════════
+  BELLE ET BELLE by Patrícia Almeida
+  Pacote de Logo
+═══════════════════════════════════════════════
+
+CONCEITO
+Duas curvas espelhadas dentro de um círculo — uma rosa, uma preta —
+que se encontram no centro. Representa o "duplo" do nome (Belle et Belle)
+e o movimento conversa com o estilo do estúdio. Funciona sozinho,
+vira favicon e selo de redes sociais.
+
+CORES DA MARCA
+  Pink principal .......... #D81E78
+  Pink claro (fundo escuro) #FF4D9A
+  Preto (quente) .......... #1A1518
+  Off-white ............... #FAF6F3
+  Mauve (apoio) ........... #98707F
+Fontes: Marcellus (título) + Hanken Grotesk (apoio)
+
+ARQUIVOS   (.svg = vetor, qualidade infinita | /png = imagem pronta p/ celular)
+  logo-horizontal ...... marca completa deitada — site, cabeçalhos
+  logo-vertical ........ marca completa empilhada — avatar grande, posts
+  simbolo .............. símbolo no círculo (fundo claro)
+  simbolo-sem-circulo .. só as curvas (usos bem pequenos)
+  simbolo-escuro ....... para fundos escuros
+  simbolo-mono ......... uma cor só (carimbo, fachada, marca d'água)
+  favicon .............. ícone do site / foto de perfil
+  logo-animado.svg ..... versão que se desenha sozinha (abertura/story)
+
+ONDE USAR
+  • Foto de perfil Instagram/Google: simbolo.png ou favicon.png
+  • Site / aba do navegador: favicon.svg (já aplicado)
+  • Fundo escuro: versão "escuro"
+  • Cartão, sacola, fachada: logo-horizontal ou simbolo-mono
+
+OBS: versão provisória de qualidade. Para uso definitivo (registro de
+marca, impressão grande), um designer pode refinar a partir deste conceito —
+cores, estilo e ideia já estão definidos.
+═══════════════════════════════════════════════

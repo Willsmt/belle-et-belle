@@ -190,6 +190,15 @@ button:focus-visible {
   justify-content: space-between;
   height: 76px;
 }
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+}
+.nav__logo svg {
+  height: 46px;
+  width: auto;
+  display: block;
+}
 .nav__links {
   display: flex;
   gap: 2.2rem;
@@ -899,6 +908,11 @@ button:focus-visible {
 }
 .footer .wordmark {
   color: var(--paper);
+}
+.footer__logo svg {
+  height: 54px;
+  width: auto;
+  display: block;
 }
 .footer__social {
   display: flex;

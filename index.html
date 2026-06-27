@@ -43,9 +43,9 @@
     <meta name="twitter:image" content="https://belleetbelle.com.br/assets/img/og-image.png" />
 
     <!-- Favicons -->
-    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png" />
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+    <link rel="icon" href="assets/img/logo/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/img/logo/png/favicon.png" sizes="512x512" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/img/logo/png/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -101,11 +101,19 @@
     <!-- NAV -->
     <header class="nav">
       <div class="wrap nav__inner">
-        <a href="#top" class="wordmark"
-          >Belle <span class="et">et</span> Belle<span class="by"
-            >by Patrícia Almeida</span
-          ></a
-        >
+        <a href="#top" class="nav__logo" aria-label="Belle et Belle by Patrícia Almeida — início">
+          <svg viewBox="0 0 540 130" role="img" aria-hidden="true">
+            <g transform="translate(8,5)">
+              <circle cx="60" cy="60" r="54" fill="none" stroke="#E7C9D6" stroke-width="1" />
+              <path d="M40,78 C30,66 32,46 46,40 C58,35 64,44 60,54 C57,62 64,66 70,60 C77,53 74,40 64,36" fill="none" stroke="#D81E78" stroke-width="2.4" stroke-linecap="round" />
+              <path d="M80,42 C90,54 88,74 74,80 C62,85 56,76 60,66 C63,58 56,54 50,60 C43,67 46,80 56,84" fill="none" stroke="#1A1518" stroke-width="2.4" stroke-linecap="round" />
+              <circle cx="60" cy="60" r="2.4" fill="#D81E78" />
+            </g>
+            <text x="146" y="62" font-family="Marcellus, Georgia, serif" font-size="40" letter-spacing="1.5" fill="#1A1518">Belle <tspan font-style="italic" fill="#D81E78">et</tspan> Belle</text>
+            <line x1="148" y1="82" x2="188" y2="82" stroke="#D81E78" stroke-width="1" />
+            <text x="198" y="87" font-family="'Hanken Grotesk', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="3.5" fill="#98707F">BY PATRÍCIA ALMEIDA</text>
+          </svg>
+        </a>
         <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
           <a href="#servicos">Serviços</a>
           <a href="#resultados">Resultados</a>
@@ -718,11 +726,19 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="wrap footer__inner">
-        <span class="wordmark"
-          >Belle <span class="et">et</span> Belle<span class="by"
-            >by Patrícia Almeida</span
-          ></span
-        >
+        <span class="footer__logo">
+          <svg viewBox="0 0 540 130" role="img" aria-label="Belle et Belle by Patrícia Almeida">
+            <g transform="translate(8,5)">
+              <circle cx="60" cy="60" r="54" fill="none" stroke="#E7C9D6" stroke-width="1" opacity="0.5" />
+              <path d="M40,78 C30,66 32,46 46,40 C58,35 64,44 60,54 C57,62 64,66 70,60 C77,53 74,40 64,36" fill="none" stroke="#FF4D9A" stroke-width="2.4" stroke-linecap="round" />
+              <path d="M80,42 C90,54 88,74 74,80 C62,85 56,76 60,66 C63,58 56,54 50,60 C43,67 46,80 56,84" fill="none" stroke="#FAF6F3" stroke-width="2.4" stroke-linecap="round" />
+              <circle cx="60" cy="60" r="2.4" fill="#FF4D9A" />
+            </g>
+            <text x="146" y="62" font-family="Marcellus, Georgia, serif" font-size="40" letter-spacing="1.5" fill="#FAF6F3">Belle <tspan font-style="italic" fill="#FF4D9A">et</tspan> Belle</text>
+            <line x1="148" y1="82" x2="188" y2="82" stroke="#FF4D9A" stroke-width="1" />
+            <text x="198" y="87" font-family="'Hanken Grotesk', Arial, sans-serif" font-size="13" font-weight="500" letter-spacing="3.5" fill="#B89AA6">BY PATRÍCIA ALMEIDA</text>
+          </svg>
+        </span>
         <nav class="footer__social" aria-label="Redes sociais">
           <a href="#">Instagram</a>
           <a href="#">WhatsApp</a>
