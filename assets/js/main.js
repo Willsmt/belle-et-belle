@@ -131,25 +131,35 @@
     galleryItems = document.querySelectorAll("#galleryGrid .gallery__item");
   if (galleryMenu && galleryItems.length) {
     var tabs = galleryMenu.querySelectorAll(".gallery__tab");
-    function filterGallery(cat) {
+    function hideAll() {
+      galleryItems.forEach(function (item) {
+        item.classList.add("is-hidden");
+      });
+    }
+    function showCat(cat) {
       galleryItems.forEach(function (item) {
         item.classList.toggle("is-hidden", item.getAttribute("data-cat") !== cat);
       });
     }
     tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
+        var wasActive = tab.classList.contains("is-active");
         tabs.forEach(function (t) {
           t.classList.remove("is-active");
           t.setAttribute("aria-selected", "false");
         });
-        tab.classList.add("is-active");
-        tab.setAttribute("aria-selected", "true");
-        filterGallery(tab.getAttribute("data-cat"));
+        if (wasActive) {
+          // clicar na sessão aberta recolhe a galeria
+          hideAll();
+        } else {
+          tab.classList.add("is-active");
+          tab.setAttribute("aria-selected", "true");
+          showCat(tab.getAttribute("data-cat"));
+        }
       });
     });
-    // estado inicial: mostra só a sessão marcada como ativa
-    var initial = galleryMenu.querySelector(".gallery__tab.is-active");
-    if (initial) filterGallery(initial.getAttribute("data-cat"));
+    // estado inicial: galeria fechada, só o menu aparece
+    hideAll();
   }
 
   // Lightbox: clique numa foto da galeria abre em tela cheia
