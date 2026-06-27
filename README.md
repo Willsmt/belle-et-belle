@@ -70,10 +70,10 @@ em [`assets/img/logo/`](assets/img/logo/) — veja o `LEIA-ME.txt` lá dentro.
 │   ├── js/main.js                  # nav, FAQ, reveal, slider, galeria, carrossel, procedimentos
 │   └── img/
 │       ├── logo/                   # pacote completo do logo (svg + png + variações)
-│       ├── Patricia_almeida.jpeg   # retrato (seção Sobre)
+│       ├── Patricia_almeida.webp   # retrato (seção Sobre)
 │       ├── og-image.png            # preview social 1200×630
 │       └── resultados/             # antes/depois (slider) + galeria por categoria
-│           ├── caso-0X-antes/depois.jpeg
+│           ├── caso-0X-antes/depois.webp
 │           ├── corporal/  gluteo/  cilios/
 │           └── limpeza-de-pele/  sobrancelha/  papada/  micropigmentacao-labial/
 └── README.md
