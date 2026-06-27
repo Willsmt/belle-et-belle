@@ -105,15 +105,21 @@
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "14:00",
-            "closes": "20:00"
+            "dayOfWeek": ["Tuesday", "Thursday"],
+            "opens": "12:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Wednesday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
           },
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": "Saturday",
-            "opens": "07:00",
-            "closes": "20:00"
+            "opens": "08:00",
+            "closes": "18:00"
           }
         ]
       }
@@ -1236,7 +1242,12 @@
               </li>
               <li>
                 <strong>Horário</strong>
-                <span>Ter–Sex · 14h às 20h &nbsp;·&nbsp; Sáb · 7h às 20h</span>
+                <span>
+                  Ter e Qui · 12h–18h<br />
+                  Qua e Sex · 9h–18h<br />
+                  Sáb · 8h–18h<br />
+                  Dom e Seg · fechado
+                </span>
               </li>
               <li><strong>Telefone</strong> <span>(11) 97615-6064</span></li>
               <li>
@@ -1260,7 +1271,15 @@
               >
             </div>
           </div>
-          <div class="contact__map reveal" aria-hidden="true"></div>
+          <div class="contact__map reveal">
+            <iframe
+              title="Localização do Belle et Belle no Google Maps"
+              src="https://www.google.com/maps?q=R.%20Manuel%20Fran%C3%A7a%20dos%20Santos%2C%20231%2C%20Jardim%20Sapopemba%2C%20S%C3%A3o%20Paulo%20-%20SP&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </section>
     </main>

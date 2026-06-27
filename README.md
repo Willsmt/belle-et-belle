@@ -103,7 +103,7 @@ scroll) separa as seções.
 
 - ⭐ Google: **5,0 com 33 avaliações**
 - 📞 WhatsApp / tel: **(11) 97615-6064**
-- 🕐 Horário: **Ter–Sex 14h–20h · Sáb 7h–20h** (Seg/Dom fechado)
+- 🕐 Horário: **Ter/Qui 12h–18h · Qua/Sex 9h–18h · Sáb 8h–18h** (Seg/Dom fechado)
 - 📍 R. Manuel França dos Santos, 231 — Jd. Sapopemba, São Paulo/SP
 - 📷 Instagram: **@belleetbellestudio**
 - 📅 Agendamento: **SimplesAgenda** (plugado nos botões; valores ficam lá)
