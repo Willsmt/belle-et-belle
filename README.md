@@ -134,8 +134,8 @@ conectar o repositório e fazer deploy, sem configuração extra.
 - [ ] **Google Meu Negócio**: manter categorias, fotos e avaliações (maior fator
       de ranqueamento local — trabalha junto com o site)
 - [ ] Google Analytics (precisa do ID de medição `G-XXXXXXXXXX`)
-- [ ] Regerar `og-image.png` com o logo oficial
 - [ ] Confirmar legendas/procedimentos dos resultados com a Patrícia
+- [ ] Foto real no hero (hoje é um quadro decorativo) e texto definitivo do "Sobre"
 
 ## 🗺️ Roadmap
 
