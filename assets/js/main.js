@@ -195,4 +195,22 @@
         closeLightbox();
     });
   }
+
+  // Carrossel de depoimentos: duplica os cards para o loop ser contínuo
+  var testiTrack = document.getElementById("testiTrack");
+  if (testiTrack) {
+    var originals = Array.prototype.slice.call(testiTrack.children);
+    originals.forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      testiTrack.appendChild(clone);
+    });
+    // clicar em qualquer depoimento abre as avaliações no Google
+    var googleReviews =
+      "https://www.google.com/search?hl=pt&kgmid=/g/11rvgz4702&q=Studio+Patricia+Almeida#lrd=0x94ce6768ecf1141d:0x93b19881aced5d69,1";
+    testiTrack.addEventListener("click", function (e) {
+      if (e.target.closest(".quote"))
+        window.open(googleReviews, "_blank", "noopener");
+    });
+  }
 })();
