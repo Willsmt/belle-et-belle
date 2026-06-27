@@ -740,24 +740,81 @@ button:focus-visible {
 }
 
 /* DEPOIMENTOS */
-.testi__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
+.testi__lead {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.testi__lead strong {
+  color: var(--pink);
+  font-weight: 600;
+}
+/* carrossel marquee */
+.testi {
+  --testi-duration: 150s;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.testi__track {
+  display: flex;
+  width: max-content;
+  align-items: stretch;
+  animation: testiScroll var(--testi-duration) linear infinite;
+}
+.testi:hover .testi__track {
+  animation-play-state: paused;
+}
+@keyframes testiScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .quote {
+  flex: 0 0 330px;
+  width: 330px;
+  margin-right: 1.4rem;
   background: var(--white);
   border: 1px solid rgba(26, 21, 24, 0.08);
   border-radius: 4px;
-  padding: 2.2rem 2rem;
+  padding: 2rem 1.9rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition:
+    border-color 0.3s var(--ease),
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
 }
-.quote__mark {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  line-height: 0.6;
-  color: var(--pink-soft);
-  margin-bottom: 0.6rem;
+.quote:hover {
+  border-color: var(--pink-soft);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -28px rgba(216, 30, 120, 0.4);
+}
+.testi__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 2.6rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--pink);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s var(--ease);
+}
+.testi__cta:hover {
+  border-color: var(--pink);
 }
 .quote__stars {
   color: var(--pink);
@@ -771,7 +828,8 @@ button:focus-visible {
   line-height: 1.7;
 }
 .quote footer {
-  margin-top: 1.3rem;
+  margin-top: auto;
+  padding-top: 1.3rem;
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1026,6 +1084,13 @@ button:focus-visible {
     order: -1;
     max-width: 340px;
   }
+  .quote {
+    flex-basis: 290px;
+    width: 290px;
+  }
+  .testi {
+    --testi-duration: 110s;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -1039,5 +1104,10 @@ button:focus-visible {
   }
   .thread path {
     stroke-dashoffset: 0;
+  }
+  /* o carrossel de avaliações é um recurso pedido: continua rodando
+     mesmo com "reduzir animações" (pausa ao passar o mouse) */
+  .testi__track {
+    animation: testiScroll var(--testi-duration) linear infinite !important;
   }
 }
