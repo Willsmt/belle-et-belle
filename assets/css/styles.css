@@ -248,25 +248,6 @@ button:focus-visible {
 .hero__art {
   position: relative;
 }
-.hero__frame {
-  aspect-ratio: 4/5;
-  border-radius: 50% 50% 6px 6px / 32% 32% 6px 6px;
-  background: var(--pink-tint);
-  border: 1px solid var(--pink-soft);
-  position: relative;
-  overflow: hidden;
-}
-.hero__frame::after {
-  content: "foto do studio / Patrícia";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--mauve);
-}
 .hero__dot {
   position: absolute;
   width: 9px;
@@ -800,6 +781,167 @@ button:focus-visible {
 }
 .about__btn {
   margin-top: 2.2rem;
+}
+
+/* HERO · baralho de fotos do studio ("passar na mão") */
+.hero__art .deck {
+  width: 100%;
+}
+.deck {
+  position: relative;
+  max-width: 452px;
+  margin-inline: auto;
+  /* margem lateral p/ a sombra/leque respirarem; clip prende a foto que
+     "passa" dentro da moldura — nunca vaza pra página nem cobre o texto */
+  padding: 4px 26px 0;
+  overflow-x: clip;
+}
+/* brilho difuso rosa atrás do baralho (equilibrado, bem suave) */
+.deck::before {
+  content: "";
+  position: absolute;
+  inset: -8% 0 -2%;
+  background: radial-gradient(
+    60% 55% at 50% 40%,
+    rgba(216, 30, 120, 0.18),
+    rgba(216, 30, 120, 0) 72%
+  );
+  filter: blur(16px);
+  z-index: 0;
+  pointer-events: none;
+}
+.deck__stack {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  touch-action: pan-y;
+}
+.deck__card {
+  position: absolute;
+  inset: 0;
+  padding: 8px;
+  background: var(--white);
+  /* moldura em arco: assinatura da marca (hero/sobre) */
+  border-radius: 50% 50% 8px 8px / 30% 30% 8px 8px;
+  border: 1px solid var(--pink-soft);
+  box-shadow: 0 16px 34px -18px rgba(26, 21, 24, 0.4);
+  transform-origin: 50% 88%;
+  transition:
+    transform 0.6s var(--ease),
+    opacity 0.6s var(--ease),
+    box-shadow 0.6s var(--ease);
+  will-change: transform;
+}
+.deck__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50% 50% 4px 4px / 30% 30% 4px 4px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+/* posições no baralho: 0 = frente, 2 = fundo */
+.deck__card[data-depth="0"] {
+  transform: rotate(-1.4deg);
+  z-index: 30;
+  cursor: grab;
+  box-shadow:
+    0 24px 50px -20px rgba(216, 30, 120, 0.5),
+    0 6px 16px -6px rgba(26, 21, 24, 0.18);
+}
+.deck__card[data-depth="0"].is-dragging {
+  cursor: grabbing;
+}
+.deck__card[data-depth="1"] {
+  transform: translate(4.5%, -2.5%) rotate(3.4deg) scale(0.95);
+  z-index: 20;
+  opacity: 0.98;
+}
+.deck__card[data-depth="2"] {
+  transform: translate(-3.5%, 2.8%) rotate(-4.6deg) scale(0.9);
+  z-index: 10;
+  opacity: 0.94;
+}
+/* enquanto arrasta ou faz a passagem, sem transição para acompanhar a mão */
+.deck__card.is-dragging,
+.deck__card.no-anim {
+  transition: none;
+}
+/* brilho equilibrado: leve reflexo diagonal só na foto da frente */
+.deck__shine {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50% 50% 4px 4px / 30% 30% 4px 4px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 38%,
+    rgba(255, 255, 255, 0.32) 50%,
+    rgba(255, 255, 255, 0) 62%
+  );
+  transition: opacity 0.5s var(--ease);
+}
+.deck__card[data-depth="0"] .deck__shine {
+  opacity: 1;
+}
+.deck__controls {
+  position: relative;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.2rem;
+}
+.deck__dots {
+  display: flex;
+  gap: 0.55rem;
+}
+.deck__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid var(--pink);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+.deck__dot.is-active {
+  background: var(--pink);
+  transform: scale(1.15);
+}
+.deck__next {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid rgba(26, 21, 24, 0.22);
+  border-radius: 2px;
+  padding: 0.7em 1.15em;
+  cursor: pointer;
+  transition:
+    border-color 0.3s var(--ease),
+    color 0.3s var(--ease),
+    background 0.3s var(--ease);
+}
+.deck__next:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+.deck__next-ico {
+  transition: transform 0.3s var(--ease);
+}
+.deck__next:hover .deck__next-ico {
+  transform: translateX(4px);
 }
 
 /* DEPOIMENTOS */

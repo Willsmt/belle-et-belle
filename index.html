@@ -335,11 +335,90 @@
             </div>
           </div>
           <div class="hero__art reveal">
-            <div class="hero__frame"></div>
-            <span class="hero__dot" style="top: 8%; right: 6%"></span>
+            <!-- baralho de fotos do studio: passa da frente para trás, como na mão -->
+            <div class="deck" id="espacoDeck">
+              <div
+                class="deck__stack"
+                id="espacoStack"
+                role="group"
+                aria-roledescription="galeria de fotos do studio"
+                aria-label="Fotos do studio Belle et Belle — arraste ou toque para passar"
+              >
+                <figure class="deck__card" data-depth="0">
+                  <img
+                    src="assets/img/espaco/espaco-01.jpg"
+                    alt="Recepção do studio com parede de quadros em tons de rosa, letreiros de neon e cantinho do café"
+                    width="1200"
+                    height="1600"
+                    loading="eager"
+                    fetchpriority="high"
+                    draggable="false"
+                  />
+                  <span class="deck__shine" aria-hidden="true"></span>
+                </figure>
+                <figure class="deck__card" data-depth="1">
+                  <img
+                    src="assets/img/espaco/espaco-02.jpg"
+                    alt="Parede decorativa do studio com quadros e pôsteres em molduras brancas e detalhes em rosa"
+                    width="1200"
+                    height="1600"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                  <span class="deck__shine" aria-hidden="true"></span>
+                </figure>
+                <figure class="deck__card" data-depth="2">
+                  <img
+                    src="assets/img/espaco/espaco-03.jpg"
+                    alt="Sala de atendimento iluminada, ambiente aconchegante do studio"
+                    width="1200"
+                    height="1600"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                  <span class="deck__shine" aria-hidden="true"></span>
+                </figure>
+              </div>
+
+              <div class="deck__controls">
+                <div
+                  class="deck__dots"
+                  id="espacoDots"
+                  role="tablist"
+                  aria-label="Escolher foto do studio"
+                >
+                  <button
+                    class="deck__dot is-active"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    aria-label="Foto 1: recepção e cantinho do café"
+                  ></button>
+                  <button
+                    class="deck__dot"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-label="Foto 2: parede decorativa"
+                  ></button>
+                  <button
+                    class="deck__dot"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-label="Foto 3: sala de atendimento"
+                  ></button>
+                </div>
+                <button class="deck__next" type="button" id="espacoNext">
+                  <span>Passar foto</span>
+                  <span class="deck__next-ico" aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+            <span class="hero__dot" style="top: 4%; right: 4%"></span>
             <span
               class="hero__dot"
-              style="bottom: 14%; left: -2%; background: var(--mauve)"
+              style="bottom: 18%; left: -3%; background: var(--mauve)"
             ></span>
           </div>
         </div>

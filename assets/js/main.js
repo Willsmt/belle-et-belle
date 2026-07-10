@@ -284,4 +284,164 @@
       });
     }
   }
+
+  // Espaço: baralho de fotos — passa da frente para trás, como na mão
+  var deck = document.getElementById("espacoDeck");
+  if (deck) {
+    var stack = document.getElementById("espacoStack"),
+      cards = Array.prototype.slice.call(stack.querySelectorAll(".deck__card")),
+      dots = Array.prototype.slice.call(
+        document.querySelectorAll("#espacoDots .deck__dot")
+      ),
+      nextBtn = document.getElementById("espacoNext"),
+      order = cards.map(function (_, i) {
+        return i;
+      }),
+      busy = false,
+      reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function render() {
+      order.forEach(function (ci, depth) {
+        cards[ci].setAttribute("data-depth", String(depth));
+      });
+      dots.forEach(function (d, i) {
+        var active = i === order[0];
+        d.classList.toggle("is-active", active);
+        d.setAttribute("aria-selected", String(active));
+      });
+    }
+
+    // manda a foto da frente para o fundo do baralho
+    function sendToBack() {
+      order.push(order.shift());
+      render();
+    }
+
+    // executa a "passada": desliza a foto para fora e recoloca atrás
+    function passOut(dir) {
+      if (busy) return;
+      busy = true;
+      var front = cards[order[0]];
+      if (reduce) {
+        sendToBack();
+        busy = false;
+        return;
+      }
+      front.classList.remove("is-dragging");
+      front.style.transition = "";
+      front.style.transform =
+        "translate(" + dir * 130 + "%, 5%) rotate(" + dir * 16 + "deg) scale(.9)";
+      front.style.opacity = "0";
+      var finished = false;
+      function done(e) {
+        if (e && e.propertyName !== "transform") return;
+        if (finished) return;
+        finished = true;
+        front.removeEventListener("transitionend", done);
+        front.classList.add("no-anim");
+        front.style.transform = "";
+        front.style.opacity = "";
+        sendToBack();
+        void front.offsetWidth; // reflow antes de reativar a transição
+        front.classList.remove("no-anim");
+        busy = false;
+      }
+      front.addEventListener("transitionend", done);
+      setTimeout(done, 700); // rede de segurança se o transitionend não vier
+    }
+
+    // traz uma foto específica para a frente (dots), sem a animação de passar
+    function bringToFront(cardIndex) {
+      if (busy || order[0] === cardIndex) return;
+      while (order[0] !== cardIndex) order.push(order.shift());
+      render();
+    }
+
+    // ---- arrastar / tocar na foto da frente ("mão") ----
+    var dragging = false,
+      startX = 0,
+      dx = 0,
+      stackW = 1;
+    stack.addEventListener("pointerdown", function (e) {
+      var front = cards[order[0]];
+      if (busy || e.target.closest(".deck__card") !== front) return;
+      dragging = true;
+      startX = e.clientX;
+      dx = 0;
+      stackW = stack.getBoundingClientRect().width || 1;
+      front.classList.add("is-dragging");
+      if (front.setPointerCapture) {
+        try {
+          front.setPointerCapture(e.pointerId);
+        } catch (err) {}
+      }
+    });
+    stack.addEventListener("pointermove", function (e) {
+      if (!dragging) return;
+      var raw = e.clientX - startX;
+      // trava o arraste a ~45% da largura: não cobre o texto nem escapa da moldura
+      var max = stackW * 0.45;
+      dx = Math.max(-max, Math.min(max, raw));
+      var front = cards[order[0]];
+      front.style.transform =
+        "translate(" +
+        dx +
+        "px, " +
+        Math.abs(dx) * 0.04 +
+        "px) rotate(" +
+        dx * 0.028 +
+        "deg)";
+    });
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      var front = cards[order[0]];
+      front.classList.remove("is-dragging");
+      // passou de ~28% da largura da foto? completa a passagem
+      if (Math.abs(dx) > stackW * 0.28) {
+        passOut(dx > 0 ? 1 : -1);
+      } else if (Math.abs(dx) < 6) {
+        // toque/clique curto = passar
+        front.style.transform = "";
+        passOut(1);
+      } else {
+        // não passou do limite: volta ao lugar
+        front.style.transform = "";
+        front.style.opacity = "";
+      }
+    }
+    stack.addEventListener("pointerup", endDrag);
+    stack.addEventListener("pointercancel", endDrag);
+
+    if (nextBtn) nextBtn.addEventListener("click", function () {
+      passOut(1);
+    });
+    dots.forEach(function (dot, i) {
+      dot.addEventListener("click", function () {
+        bringToFront(i);
+      });
+    });
+
+    // autoplay suave (pausa no hover/foco/aba oculta) — desligado se reduzir-animações
+    if (!reduce) {
+      var hovering = false;
+      deck.addEventListener("pointerenter", function () {
+        hovering = true;
+      });
+      deck.addEventListener("pointerleave", function () {
+        hovering = false;
+      });
+      deck.addEventListener("focusin", function () {
+        hovering = true;
+      });
+      deck.addEventListener("focusout", function () {
+        hovering = false;
+      });
+      setInterval(function () {
+        if (!busy && !dragging && !hovering && !document.hidden) passOut(1);
+      }, 4200);
+    }
+
+    render();
+  }
 })();
