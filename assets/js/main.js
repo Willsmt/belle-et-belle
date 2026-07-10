@@ -167,11 +167,17 @@
     hideAll();
   }
 
-  // Procedimentos: menu por categoria filtra os cards (1ª categoria aberta)
+  // Procedimentos: menu por categoria começa FECHADO; clique numa categoria
+  // p/ ver os cards (clicar na aberta recolhe) — mesmo padrão da galeria abaixo
   var procMenu = document.getElementById("procMenu"),
     procItems = document.querySelectorAll("#procGrid .proc__item");
   if (procMenu && procItems.length) {
     var procTabs = procMenu.querySelectorAll(".proc__tab");
+    function procHideAll() {
+      procItems.forEach(function (item) {
+        item.classList.add("is-hidden");
+      });
+    }
     function showProc(cat) {
       procItems.forEach(function (item) {
         item.classList.toggle(
@@ -182,18 +188,23 @@
     }
     procTabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
+        var wasActive = tab.classList.contains("is-active");
         procTabs.forEach(function (t) {
           t.classList.remove("is-active");
           t.setAttribute("aria-selected", "false");
         });
-        tab.classList.add("is-active");
-        tab.setAttribute("aria-selected", "true");
-        showProc(tab.getAttribute("data-cat"));
+        if (wasActive) {
+          // clicar na categoria aberta recolhe os procedimentos
+          procHideAll();
+        } else {
+          tab.classList.add("is-active");
+          tab.setAttribute("aria-selected", "true");
+          showProc(tab.getAttribute("data-cat"));
+        }
       });
     });
-    var procInit =
-      procMenu.querySelector(".proc__tab.is-active") || procTabs[0];
-    if (procInit) showProc(procInit.getAttribute("data-cat"));
+    // estado inicial: fechado, só o menu aparece
+    procHideAll();
   }
 
   // Lightbox: clique numa foto da galeria abre em tela cheia

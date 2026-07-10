@@ -467,14 +467,17 @@
             <p class="eyebrow">Tratamentos</p>
             <h2>O que cuidamos <em>por você</em>.</h2>
           </div>
-          <!-- menu por categoria: clique e veja os procedimentos do grupo -->
+          <!-- menu por categoria: começa fechado; clique numa categoria p/ ver os procedimentos -->
+          <p class="gallery__lead reveal">
+            Escolha uma categoria para ver os procedimentos:
+          </p>
           <div
             class="proc__menu reveal"
             id="procMenu"
             role="tablist"
             aria-label="Categorias de procedimentos"
           >
-            <button class="proc__tab is-active" role="tab" aria-selected="true" data-cat="cilios">
+            <button class="proc__tab" role="tab" aria-selected="false" data-cat="cilios">
               Cílios <span>7</span>
             </button>
             <button class="proc__tab" role="tab" aria-selected="false" data-cat="sobrancelha">
