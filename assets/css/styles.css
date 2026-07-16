@@ -1397,9 +1397,8 @@ button:focus-visible {
   height: 100vh;
   height: 100dvh;
   z-index: 99999;
-  /* cor de fundo real do vídeo (amostrada dos frames) — não é --paper;
-     usar --paper aqui deixava uma barra bege visível nas laterais/topo do
-     vídeo quando ele aparece com "contain" no mobile */
+  /* cor de fundo real do vídeo (amostrada dos frames), não --paper —
+     evita uma borda bege visível enquanto o vídeo cresce até cobrir a tela */
   background-color: #d8cece;
   transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
 }
@@ -1433,14 +1432,4 @@ button:focus-visible {
 }
 .site-intro__video.is-visible {
   opacity: 1;
-}
-@media (max-width: 640px), (max-aspect-ratio: 4/5) {
-  /* o vídeo/imagem de entrada é 16:9 (paisagem); em telas de celular (retrato)
-     "cover" corta quase tudo e amplia demais — "contain" mostra a cena inteira */
-  .site-intro__bg {
-    background-size: contain;
-  }
-  .site-intro__video {
-    object-fit: contain;
-  }
 }

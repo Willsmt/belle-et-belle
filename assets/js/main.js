@@ -461,8 +461,14 @@
     introVideo = document.getElementById("site-intro-video");
   
   if (intro && introVideo) {
-    // 1. UX: Se o usuário já viu a intro nesta sessão, não mostra de novo.
-    if (sessionStorage.getItem("introVisto")) {
+    // 1. UX: no celular a animação não funciona bem (vídeo 16:9 cortado/mal
+    // aproveitado em tela retrato) — mostra só no desktop. Também evita
+    // baixar os 2,3MB do vídeo à toa em conexão de celular.
+    var isMobile = window.matchMedia(
+      "(max-width: 640px), (max-aspect-ratio: 4/5)"
+    ).matches;
+
+    if (isMobile || sessionStorage.getItem("introVisto")) {
       intro.parentNode.removeChild(intro);
     } else {
       document.body.style.overflow = "hidden";
@@ -470,6 +476,8 @@
 
       // 2. UX: Acelera o vídeo de leve (25% mais rápido) para não prender o usuário
       introVideo.playbackRate = 1.25;
+      introVideo.preload = "auto";
+      introVideo.load();
 
       var playPromise = introVideo.play();
       if (playPromise !== undefined) {
