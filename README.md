@@ -33,11 +33,15 @@ orientar a presença online da Patrícia de forma consistente.
 
 ## 🎨 A marca
 
-Logo criado do zero: duas curvas espelhadas dentro de um círculo — uma rosa, uma
-preta — que se encontram no centro, representando o "duplo" do nome (*Belle et
-Belle*). Funciona sozinho, vira favicon e selo de redes. O pacote completo
-(horizontal, vertical, símbolo, mono, favicon, versões claro/escuro e animada) está
-em [`assets/img/logo/`](assets/img/logo/) — veja o `LEIA-ME.txt` lá dentro.
+Logo oficial: rosto em line-art (perfil da mulher, um traço só) com um toque pink
+na bochecha, ao lado do wordmark "Belle *et* Belle by Patrícia Almeida". O pacote
+completo (horizontal, horizontal escuro, vertical, símbolo, símbolo escuro,
+símbolo preto, favicon) está em [`assets/img/logo/`](assets/img/logo/) — veja o
+`LEIA-ME.txt` lá dentro.
+
+No site, o selo (rosto + wordmark) fica inline no `index.html` — um `<symbol>`
+único reaproveitado no nav e no rodapé via `<use>`, sem depender de carregar
+arquivo externo nem duplicar o path do desenho.
 
 ---
 
@@ -50,7 +54,8 @@ em [`assets/img/logo/`](assets/img/logo/) — veja o `LEIA-ME.txt` lá dentro.
 - Fontes: [Marcellus](https://fonts.google.com/specimen/Marcellus) (display) + [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk) (corpo)
 
 ### Funcionalidades
-- **Logo oficial** em SVG inline no nav e rodapé (mantém a fonte da marca, nítido em qualquer tela)
+- **Logo oficial** inline (nav e rodapé), reaproveitada via `<symbol>`/`<use>` — nítida em qualquer tela, sem depender de arquivo externo
+- **Baralho de fotos do studio** no hero — passa a foto da frente pra trás, como na mão (arrasta/toca/botão + dots), com animação de entrada só no desktop (no celular ela era mal aproveitada e foi desligada)
 - **Slider antes/depois** arrastável (mouse + touch + teclado, acessível)
 - **Galeria de resultados por sessão** — a cliente escolhe o procedimento e vê as fotos; abre em tela cheia (lightbox)
 - **Carrossel de depoimentos** que roda sozinho, com clique levando às avaliações no Google
@@ -68,8 +73,11 @@ em [`assets/img/logo/`](assets/img/logo/) — veja o `LEIA-ME.txt` lá dentro.
 ├── assets/
 │   ├── css/styles.css              # estilos (tokens + componentes)
 │   ├── js/main.js                  # nav, FAQ, reveal, slider, galeria, carrossel, procedimentos
+│   ├── video/intro.mp4             # animação de entrada (só desktop)
 │   └── img/
 │       ├── logo/                   # pacote completo do logo (svg + png + variações)
+│       ├── espaco/                 # fotos do studio (baralho do hero)
+│       ├── intro/                  # frame de fallback da animação de entrada
 │       ├── Patricia_almeida.webp   # retrato (seção Sobre)
 │       ├── og-image.png            # preview social 1200×630
 │       └── resultados/             # antes/depois (slider) + galeria por categoria
@@ -130,12 +138,19 @@ conectar o repositório e fazer deploy, sem configuração extra.
 - [ ] **Trocar `https://belleetbelle.com.br` pelo domínio real** em `index.html`
       (`canonical`, `og:url`, `og:image`, JSON-LD), `sitemap.xml` e `robots.txt`
 - [ ] Domínio próprio (.com.br via Registro.br → apontar para a Vercel)
+- [ ] Deploy definitivo na Vercel (conectar repositório, sem config extra)
 - [ ] **Google Search Console**: verificar o site e enviar o `sitemap.xml`
 - [ ] **Google Meu Negócio**: manter categorias, fotos e avaliações (maior fator
       de ranqueamento local — trabalha junto com o site)
-- [ ] Google Analytics (precisa do ID de medição `G-XXXXXXXXXX`)
-- [ ] Confirmar legendas/procedimentos dos resultados com a Patrícia
-- [ ] Foto real no hero (hoje é um quadro decorativo) e texto definitivo do "Sobre"
+- [ ] Google Analytics (precisa do ID de medição `G-XXXXXXXXXX` — ainda não plugado)
+- [ ] **LGPD**: `assets/img/espaco/espaco-03.webp` mostra uma cliente com rosto
+      parcialmente visível durante um procedimento — confirmar consentimento com
+      a Patrícia ou trocar a foto
+- [ ] Confirmar com a Patrícia se a lista de serviços/legendas dos resultados
+      está 100% atualizada
+
+Já resolvido: foto real no hero (baralho do studio), foto + texto reais na seção
+"Sobre", fotos reais de antes/depois, depoimentos reais do Google.
 
 ## 🗺️ Roadmap
 
