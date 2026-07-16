@@ -135,10 +135,8 @@ conectar o repositório e fazer deploy, sem configuração extra.
 
 ## ✅ Pendências
 
-- [ ] **Trocar `https://belleetbelle.com.br` pelo domínio real** em `index.html`
-      (`canonical`, `og:url`, `og:image`, JSON-LD), `sitemap.xml` e `robots.txt`
-- [ ] Domínio próprio (.com.br via Registro.br → apontar para a Vercel)
-- [ ] Deploy definitivo na Vercel (conectar repositório, sem config extra)
+- [ ] Apontar DNS do domínio (Registro.br) para a Vercel
+- [ ] Deploy definitivo na Vercel (conectar repositório, adicionar domínio custom)
 - [ ] **Google Search Console**: verificar o site e enviar o `sitemap.xml`
 - [ ] **Google Meu Negócio**: manter categorias, fotos e avaliações (maior fator
       de ranqueamento local — trabalha junto com o site)
@@ -149,8 +147,9 @@ conectar o repositório e fazer deploy, sem configuração extra.
 - [ ] Confirmar com a Patrícia se a lista de serviços/legendas dos resultados
       está 100% atualizada
 
-Já resolvido: foto real no hero (baralho do studio), foto + texto reais na seção
-"Sobre", fotos reais de antes/depois, depoimentos reais do Google.
+Já resolvido: domínio `belleetbelle.com.br` registrado, foto real no hero (baralho
+do studio), foto + texto reais na seção "Sobre", fotos reais de antes/depois,
+depoimentos reais do Google.
 
 ## 🗺️ Roadmap
 
