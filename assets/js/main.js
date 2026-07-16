@@ -455,4 +455,60 @@
 
     render();
   }
+
+  // --- ANIMAÇÃO DE ENTRADA DO SITE ---
+  var intro = document.getElementById("site-intro"),
+    introVideo = document.getElementById("site-intro-video");
+  
+  if (intro && introVideo) {
+    // 1. UX: Se o usuário já viu a intro nesta sessão, não mostra de novo.
+    if (sessionStorage.getItem("introVisto")) {
+      intro.parentNode.removeChild(intro);
+    } else {
+      document.body.style.overflow = "hidden";
+      sessionStorage.setItem("introVisto", "true");
+
+      // 2. UX: Acelera o vídeo de leve (25% mais rápido) para não prender o usuário
+      introVideo.playbackRate = 1.25;
+
+      var playPromise = introVideo.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(function () {
+            introVideo.classList.add("is-visible");
+          })
+          .catch(function () {
+            hideIntro();
+          });
+      } else {
+        introVideo.classList.add("is-visible");
+      }
+
+      var isIntroHidden = false;
+      function hideIntro() {
+        if (isIntroHidden) return;
+        isIntroHidden = true;
+        intro.classList.add("is-hidden");
+        document.body.style.overflow = "";
+        setTimeout(function () {
+          if (intro.parentNode) intro.parentNode.removeChild(intro);
+        }, 2000); // 1.5s da transição CSS + margem
+      }
+
+      // 3. UX: Se o usuário tocar ou clicar na tela, pula a intro na hora
+      intro.addEventListener("click", hideIntro);
+
+      introVideo.addEventListener("ended", hideIntro);
+      
+      // 4. UX: Começa a sumir mais cedo (aos 3.5 segundos)
+      introVideo.addEventListener("timeupdate", function() {
+        if (introVideo.currentTime >= 3.5) {
+          hideIntro();
+        }
+      });
+
+      // Fallback de segurança (se travar, libera em 8 segundos no máximo)
+      setTimeout(hideIntro, 8000);
+    }
+  }
 })();
