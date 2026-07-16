@@ -140,16 +140,15 @@ conectar o repositório e fazer deploy, sem configuração extra.
 - [ ] **Google Search Console**: verificar o site e enviar o `sitemap.xml`
 - [ ] **Google Meu Negócio**: manter categorias, fotos e avaliações (maior fator
       de ranqueamento local — trabalha junto com o site)
-- [ ] Google Analytics (precisa do ID de medição `G-XXXXXXXXXX` — ainda não plugado)
 - [ ] **LGPD**: `assets/img/espaco/espaco-03.webp` mostra uma cliente com rosto
       parcialmente visível durante um procedimento — confirmar consentimento com
       a Patrícia ou trocar a foto
 - [ ] Confirmar com a Patrícia se a lista de serviços/legendas dos resultados
       está 100% atualizada
 
-Já resolvido: domínio `belleetbelle.com.br` registrado, foto real no hero (baralho
-do studio), foto + texto reais na seção "Sobre", fotos reais de antes/depois,
-depoimentos reais do Google.
+Já resolvido: domínio `belleetbelle.com.br` registrado, Google Analytics plugado
+(`G-WTW3HWDGJZ`), foto real no hero (baralho do studio), foto + texto reais na
+seção "Sobre", fotos reais de antes/depois, depoimentos reais do Google.
 
 ## 🗺️ Roadmap
 
