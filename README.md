@@ -55,7 +55,8 @@ arquivo externo nem duplicar o path do desenho.
 
 ### Funcionalidades
 - **Logo oficial** inline (nav e rodapé), reaproveitada via `<symbol>`/`<use>` — nítida em qualquer tela, sem depender de arquivo externo
-- **Baralho de fotos do studio** no hero — passa a foto da frente pra trás, como na mão (arrasta/toca/botão + dots), com animação de entrada só no desktop (no celular ela era mal aproveitada e foi desligada)
+- **Tour em vídeo do studio** no hero — vídeo real gravado pela Patrícia, com capa (poster) e controles nativos do navegador (play/pause/tela cheia/volume), carregado só quando a pessoa clica
+- Animação de entrada só no desktop (no celular ela era mal aproveitada e foi desligada)
 - **Slider antes/depois** arrastável (mouse + touch + teclado, acessível)
 - **Galeria de resultados por sessão** — a cliente escolhe o procedimento e vê as fotos; abre em tela cheia (lightbox)
 - **Carrossel de depoimentos** que roda sozinho, com clique levando às avaliações no Google
@@ -73,10 +74,12 @@ arquivo externo nem duplicar o path do desenho.
 ├── assets/
 │   ├── css/styles.css              # estilos (tokens + componentes)
 │   ├── js/main.js                  # nav, FAQ, reveal, slider, galeria, carrossel, procedimentos
-│   ├── video/intro.mp4             # animação de entrada (só desktop)
+│   ├── video/
+│   │   ├── intro.mp4                # animação de entrada (só desktop)
+│   │   └── espaco-tour.webm/.mp4    # tour em vídeo do studio (hero)
 │   └── img/
 │       ├── logo/                   # pacote completo do logo (svg + png + variações)
-│       ├── espaco/                 # fotos do studio (baralho do hero)
+│       ├── espaco/                 # capa (poster) do vídeo do tour
 │       ├── intro/                  # frame de fallback da animação de entrada
 │       ├── Patricia_almeida.webp   # retrato (seção Sobre)
 │       ├── og-image.png            # preview social 1200×630
@@ -135,20 +138,19 @@ conectar o repositório e fazer deploy, sem configuração extra.
 
 ## ✅ Pendências
 
-- [ ] Apontar DNS do domínio (Registro.br) para a Vercel
-- [ ] Deploy definitivo na Vercel (conectar repositório, adicionar domínio custom)
-- [ ] **Google Search Console**: verificar o site e enviar o `sitemap.xml`
+- [ ] **Sitemap**: enviar `sitemap.xml` dentro do Google Search Console
+      (propriedade já verificada)
 - [ ] **Google Meu Negócio**: manter categorias, fotos e avaliações (maior fator
       de ranqueamento local — trabalha junto com o site)
-- [ ] **LGPD**: `assets/img/espaco/espaco-03.webp` mostra uma cliente com rosto
-      parcialmente visível durante um procedimento — confirmar consentimento com
-      a Patrícia ou trocar a foto
 - [ ] Confirmar com a Patrícia se a lista de serviços/legendas dos resultados
       está 100% atualizada
 
-Já resolvido: domínio `belleetbelle.com.br` registrado, Google Analytics plugado
-(`G-WTW3HWDGJZ`), foto real no hero (baralho do studio), foto + texto reais na
-seção "Sobre", fotos reais de antes/depois, depoimentos reais do Google.
+Já resolvido: domínio `belleetbelle.com.br` registrado e DNS apontando para a
+Vercel, Google Search Console verificado, Google Analytics plugado
+(`G-WTW3HWDGJZ`), tour em vídeo real do studio no hero (substituiu o baralho de
+fotos — resolve também a pendência de LGPD da foto antiga com cliente
+identificável, que saiu do ar), foto + texto reais na seção "Sobre", fotos
+reais de antes/depois, depoimentos reais do Google.
 
 ## 🗺️ Roadmap
 

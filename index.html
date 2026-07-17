@@ -337,138 +337,23 @@
             </div>
           </div>
           <div class="hero__art reveal">
-            <!-- baralho de fotos do studio: passa da frente para trás, como na mão -->
-            <div class="deck" id="espacoDeck">
-              <div
-                class="deck__stack"
-                id="espacoStack"
-                role="group"
-                aria-roledescription="galeria de fotos do studio"
-                aria-label="Fotos do studio Belle et Belle — arraste ou toque para passar"
-              >
-                <figure class="deck__card" data-depth="0">
-                  <img
-                    src="assets/img/espaco/espaco-01.webp"
-                    alt="Recepção do studio com parede de quadros em tons de rosa, letreiros de neon e cantinho do café"
-                    width="900"
-                    height="1200"
-                    loading="eager"
-                    fetchpriority="high"
-                    draggable="false"
-                  />
-                  <span class="deck__shine" aria-hidden="true"></span>
-                </figure>
-                <figure class="deck__card" data-depth="1">
-                  <img
-                    src="assets/img/espaco/espaco-02.webp"
-                    alt="Parede decorativa do studio com quadros e pôsteres em molduras brancas e detalhes em rosa"
-                    width="900"
-                    height="1200"
-                    loading="lazy"
-                    draggable="false"
-                  />
-                  <span class="deck__shine" aria-hidden="true"></span>
-                </figure>
-                <figure class="deck__card" data-depth="2">
-                  <img
-                    src="assets/img/espaco/espaco-03.webp"
-                    alt="Sala de atendimento iluminada, ambiente aconchegante do studio"
-                    width="900"
-                    height="1200"
-                    loading="lazy"
-                    draggable="false"
-                  />
-                  <span class="deck__shine" aria-hidden="true"></span>
-                </figure>
-                <figure class="deck__card" data-depth="3">
-                  <img
-                    src="assets/img/espaco/espaco-04.webp"
-                    alt="Cantinho do café do studio com parede de quadros decorativos em tons de rosa"
-                    width="900"
-                    height="1200"
-                    loading="lazy"
-                    draggable="false"
-                  />
-                  <span class="deck__shine" aria-hidden="true"></span>
-                </figure>
-                <figure class="deck__card" data-depth="4">
-                  <img
-                    src="assets/img/espaco/espaco-05.webp"
-                    alt="Sala de atendimento com maca e iluminação em LED"
-                    width="900"
-                    height="1200"
-                    loading="lazy"
-                    draggable="false"
-                  />
-                  <span class="deck__shine" aria-hidden="true"></span>
-                </figure>
-                <figure class="deck__card" data-depth="5">
-                  <img
-                    src="assets/img/espaco/espaco-06.webp"
-                    alt="Entrada do studio com poltrona, banquinho e espelho redondo"
-                    width="900"
-                    height="1200"
-                    loading="lazy"
-                    draggable="false"
-                  />
-                  <span class="deck__shine" aria-hidden="true"></span>
-                </figure>
-              </div>
-
-              <div class="deck__controls">
-                <div
-                  class="deck__dots"
-                  id="espacoDots"
-                  role="tablist"
-                  aria-label="Escolher foto do studio"
+            <!-- tour em vídeo do studio: capa até o clique, som só depois -->
+            <div class="hero__video-wrap">
+              <div class="hero__video-frame">
+                <video
+                  class="hero__video"
+                  id="heroTourVideo"
+                  poster="assets/img/espaco/tour-poster.jpg"
+                  preload="none"
+                  controls
+                  playsinline
+                  aria-label="Tour em vídeo pelo studio Belle et Belle"
                 >
-                  <button
-                    class="deck__dot is-active"
-                    type="button"
-                    role="tab"
-                    aria-selected="true"
-                    aria-label="Foto 1: recepção e cantinho do café"
-                  ></button>
-                  <button
-                    class="deck__dot"
-                    type="button"
-                    role="tab"
-                    aria-selected="false"
-                    aria-label="Foto 2: parede decorativa"
-                  ></button>
-                  <button
-                    class="deck__dot"
-                    type="button"
-                    role="tab"
-                    aria-selected="false"
-                    aria-label="Foto 3: sala de atendimento"
-                  ></button>
-                  <button
-                    class="deck__dot"
-                    type="button"
-                    role="tab"
-                    aria-selected="false"
-                    aria-label="Foto 4: cantinho do café"
-                  ></button>
-                  <button
-                    class="deck__dot"
-                    type="button"
-                    role="tab"
-                    aria-selected="false"
-                    aria-label="Foto 5: sala de atendimento com maca"
-                  ></button>
-                  <button
-                    class="deck__dot"
-                    type="button"
-                    role="tab"
-                    aria-selected="false"
-                    aria-label="Foto 6: entrada do studio"
-                  ></button>
-                </div>
-                <button class="deck__next" type="button" id="espacoNext">
-                  <span>Passar foto</span>
-                  <span class="deck__next-ico" aria-hidden="true">→</span>
-                </button>
+                  <source src="assets/video/espaco-tour.webm" type="video/webm" />
+                  <source src="assets/video/espaco-tour.mp4" type="video/mp4" />
+                  Seu navegador não é compatível com vídeo. Você pode
+                  <a href="assets/video/espaco-tour.mp4">baixar o tour aqui</a>.
+                </video>
               </div>
             </div>
             <span class="hero__dot" style="top: 4%; right: 4%"></span>
