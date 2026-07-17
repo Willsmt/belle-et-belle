@@ -69,6 +69,7 @@ arquivo externo nem duplicar o path do desenho.
 ```
 .
 ├── index.html                      # marcação da página
+├── privacidade.html                # política de privacidade (LGPD)
 ├── docs/
 │   └── Belle-et-Belle-Estrategia-Digital.pdf   # apostila de estratégia
 ├── assets/
@@ -79,7 +80,8 @@ arquivo externo nem duplicar o path do desenho.
 │   │   └── espaco-tour.webm/.mp4    # tour em vídeo do studio (hero)
 │   └── img/
 │       ├── logo/                   # pacote completo do logo (svg + png + variações)
-│       ├── espaco/                 # capa (poster) do vídeo do tour
+│       ├── espaco/                 # capa (poster) do vídeo + fotos antigas do baralho
+│       │                           #   (espaco-01..06.webp, sem uso — ver Pendências)
 │       ├── intro/                  # frame de fallback da animação de entrada
 │       ├── Patricia_almeida.webp   # retrato (seção Sobre)
 │       ├── og-image.png            # preview social 1200×630
@@ -140,6 +142,9 @@ conectar o repositório e fazer deploy, sem configuração extra.
 
 - [ ] **Google Meu Negócio**: manter categorias, fotos e avaliações (maior fator
       de ranqueamento local — trabalha junto com o site)
+- [ ] `assets/img/espaco/espaco-01..06.webp` (fotos do antigo baralho) ficaram
+      sem uso em lugar nenhum do site — decidir se apaga ou reaproveita em
+      outra seção
 
 Já resolvido: domínio `belleetbelle.com.br` registrado e DNS apontando para a
 Vercel, Google Search Console verificado + `sitemap.xml` enviado, Google
