@@ -138,19 +138,24 @@ conectar o repositório e fazer deploy, sem configuração extra.
 
 ## ✅ Pendências
 
-- [ ] **Sitemap**: enviar `sitemap.xml` dentro do Google Search Console
-      (propriedade já verificada)
 - [ ] **Google Meu Negócio**: manter categorias, fotos e avaliações (maior fator
       de ranqueamento local — trabalha junto com o site)
-- [ ] Confirmar com a Patrícia se a lista de serviços/legendas dos resultados
-      está 100% atualizada
 
 Já resolvido: domínio `belleetbelle.com.br` registrado e DNS apontando para a
-Vercel, Google Search Console verificado, Google Analytics plugado
-(`G-WTW3HWDGJZ`), tour em vídeo real do studio no hero (substituiu o baralho de
-fotos — resolve também a pendência de LGPD da foto antiga com cliente
-identificável, que saiu do ar), foto + texto reais na seção "Sobre", fotos
+Vercel, Google Search Console verificado + `sitemap.xml` enviado, Google
+Analytics plugado (`G-WTW3HWDGJZ`) com página de
+[Política de Privacidade](privacidade.html) cobrindo a LGPD, tour em vídeo real
+do studio no hero (substituiu o baralho de fotos — resolve também a pendência
+de LGPD da foto antiga com cliente identificável, que saiu do ar), lista de
+serviços confirmada com a Patrícia, foto + texto reais na seção "Sobre", fotos
 reais de antes/depois, depoimentos reais do Google.
+
+## 🔒 Privacidade e LGPD
+
+Ver [`privacidade.html`](privacidade.html): explica a coleta feita pelo Google
+Analytics (cookies, IP, comportamento de navegação) e os direitos do titular.
+Atualizar a data da página sempre que uma nova ferramenta de coleta for
+adicionada ao site.
 
 ## 🗺️ Roadmap
 
